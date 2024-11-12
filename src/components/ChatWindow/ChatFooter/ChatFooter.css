@@ -1,0 +1,33 @@
+.chat-footer {
+    height: 40px;
+    padding: 25px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #202c33;
+}
+
+.message-form {
+    display: flex;
+    width: 90%;
+    gap: 14px;
+}
+.message-input-container {
+    width: 100%;
+    background-color: #2a3942;
+    border-radius: 10px;
+    padding: 7px 15px;
+}
+
+
+.chat-footer svg {
+    height: 20px;
+    width: 20px;
+    color: var(--transparent-white);
+}
+
+.chat-footer button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

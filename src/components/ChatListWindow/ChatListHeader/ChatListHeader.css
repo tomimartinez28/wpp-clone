@@ -1,0 +1,37 @@
+.chatlist-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 10px;
+}
+.chatlist-header-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px 10px 10px;
+}
+
+
+.chatlist-header-icons {
+    font-size: 18px;
+    color: var(--transparent-white);
+    display: flex;
+    align-items: center;
+    gap:15px;
+}
+
+
+.chat-searcher {
+    color: var(--transparent-white);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--dark-blue);
+    border-radius: 8px;
+    padding: 6px 12px;
+}
+
+.chat-searcher span {
+    font-size: 15px;
+}

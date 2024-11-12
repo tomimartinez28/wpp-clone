@@ -1,0 +1,11 @@
+.custom-input {
+    background-color: transparent;
+    width: 100%;
+    color: #f6f6f6;
+    outline: none;
+    border: none;
+}
+
+::placeholder {
+    color: var(--transparent-white);
+}

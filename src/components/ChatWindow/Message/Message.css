@@ -1,0 +1,44 @@
+.message-bubble-container {
+    width: 100%;
+    display: flex;
+}
+.message-bubble-container.sent {
+    justify-content: end;
+}
+
+
+
+.message-bubble {
+    display: flex;
+    padding: 5px 10px;
+    border-radius: 10px;
+    align-items: center;
+    gap:10px;
+}
+
+.message-bubble.received {
+    background-color: #202c33
+}
+
+.message-bubble.sent {
+    background-color: var(--main-custom-green)
+}
+
+.message-bubble-data {
+    display: flex;
+    align-items: center;
+    gap:5px;
+    position: relative;
+    top: 5px;
+    bottom: 2px;
+    font-size: 11px;
+    color: var(--transparent-white)
+}
+
+.status-icon {
+    font-size: 12px;
+}
+
+.status-icon.read {
+    color: #00a8f5;
+}

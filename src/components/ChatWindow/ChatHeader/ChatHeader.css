@@ -1,0 +1,50 @@
+.chat-header {
+    background-color: var(--dark-blue);
+    height: 40px;
+    padding: 25px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-profile h4 {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.user-avatar img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.header-menu-buttons {
+    display: flex;
+    color: var(--transparent-white);
+    align-items: center;
+    gap:25px;
+}
+
+.video-call-buttons {
+    display: flex;
+    align-items: center;
+    gap:5px
+}
+
+.bi.bi-chevron-down {
+    font-size: 6px;
+}

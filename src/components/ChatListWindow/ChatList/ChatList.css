@@ -1,0 +1,13 @@
+.chatlist-window {
+    min-width: 300px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #111B1F;
+    
+}
+
+.chatlist-items-container {
+    height: 100%;
+}
