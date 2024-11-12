@@ -2,7 +2,7 @@ const chats = [
     {
         id: 1,
         name: 'Robert Plant',
-        img: '/src/assets/profile-pictures/robert.webp',
+        img: '/assets/profile-pictures/robert.webp',
         messages: [
             {
                 time: "22:10",
@@ -30,7 +30,7 @@ const chats = [
     {
         id: 2,
         name: 'Jimmy Page',
-        img: '/src/assets/profile-pictures/jimmy.jpg',
+        img: '/assets/profile-pictures/jimmy.jpg',
         messages: [
             {
                 time: "22:10",
@@ -58,7 +58,7 @@ const chats = [
     {
         id: 3,
         name: 'John Bonham',
-        img: '/src/assets/profile-pictures/bonham.jpg',
+        img: '/assets/profile-pictures/bonham.jpg',
         messages: [
             {
                 time: "22:10",
@@ -86,7 +86,7 @@ const chats = [
     {
         id: 4,
         name: 'John Paul Jones',
-        img: '/src/assets/profile-pictures/john-paul-jones.jpg',
+        img: '/assets/profile-pictures/john-paul-jones.jpg',
         messages: [
             {
                 time: "22:10",

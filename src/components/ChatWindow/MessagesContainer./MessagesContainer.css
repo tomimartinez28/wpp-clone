@@ -1,5 +1,5 @@
 .messages-container {
-    background-image: url("src/assets/chat-background.jpg");
+    background-image: url("/assets/chat-background.jpg");
     height: 100%;
     display: flex;
     flex-direction: column;
