@@ -2,8 +2,9 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
+    <Navigate to="/chat/1" replace />
+)
 }
+  
 
 export default Home

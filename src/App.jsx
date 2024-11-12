@@ -6,7 +6,7 @@ function App() {
    
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/:chat_id" element={<MainContainer />} />
+      <Route path="/chat/:chat_id" element={<MainContainer />} />
     </Routes>
 
   )
