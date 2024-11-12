@@ -8,7 +8,7 @@ const ChatItem = ({id, name, img, messages}) => {
   const lastMessage = messages[messages.length - 1]
 
   return (
-    <Link to={`/${id}`}>
+    <Link to={`/chat/${id}`}>
       <div className={`chat-item ${chat_id == id ? 'selected' : ''}`}>
         <div className='profile-picture'>
           <img src={img} alt={`Foto de perfil de ${name}`}/>
