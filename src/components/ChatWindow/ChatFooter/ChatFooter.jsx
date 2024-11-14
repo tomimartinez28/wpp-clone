@@ -2,7 +2,7 @@ import React, {useId, useState} from 'react'
 import './ChatFooter.css'
 import Input from '../../Input/Input'
 import { BsEmojiLaughing } from "react-icons/bs";
-import { FiPlus } from "react-icons/fi";
+import { FaPlus } from "react-icons/fa6";
 import { IoSend } from "react-icons/io5";
 import { IoMdMic } from "react-icons/io";
 import extractFormData from '../../../helpers/extractFormData';
@@ -38,12 +38,18 @@ const ChatFooter = ({handleNewMessage}) => {
 
   return (
     <footer className='chat-footer'>
-      <BsEmojiLaughing />
-      <FiPlus />
+      <div className='chat-footer-icons'>
+        <span>
+          <BsEmojiLaughing />
+        </span>
+        <span>
+        <FaPlus />
+        </span>
+      </div>
       
       <form className='message-form' onChange={handleFormChange} onSubmit={handleSubmit}>
         <div className='message-input-container'>
-          <Input placeholder={'Escribe un mensaje'}/>
+          <Input placeholder={'Escribe un mensaje'} name={'text'}/>
         </div>
         {
           isWriting

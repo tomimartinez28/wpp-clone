@@ -17,7 +17,7 @@ const ChatListHeader = () => {
         </div>
         <div className='chat-searcher'>
           <span><IoSearch /></span>
-          <Input placeholder='Buscar' />
+          <Input placeholder='Buscar' name='searcher'/>
         </div>
     </header>
   )

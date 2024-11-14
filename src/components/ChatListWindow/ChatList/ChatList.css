@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: space-between;
     background-color: #111B1F;
-    
+    overflow: scroll;
 }
 
 .chatlist-items-container {

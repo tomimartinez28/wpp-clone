@@ -6,6 +6,17 @@
     justify-content: space-between;
     background-color: #202c33;
 }
+.chat-footer-icons {
+    display: flex;
+    align-items: center;
+}
+
+.chat-footer-icons span {
+    padding: 5px 5px;
+    width: 35px;
+    height: 30px;
+}
+
 
 .message-form {
     display: flex;

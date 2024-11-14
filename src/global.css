@@ -17,5 +17,6 @@
 
 .main-container {
   display: flex;
+  height: 100vh;
   color: #f6f6f6;
 }

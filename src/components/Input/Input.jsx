@@ -1,11 +1,11 @@
 import React from 'react'
 import './Input.css'
 
-const Input = ({placeholder}) => {
+const Input = ({placeholder, name}) => {
   return (
-    <div>
-      <label htmlFor="text" hidden></label>
-      <input type="text" className='custom-input' placeholder={placeholder} name='text' id='text' />
+    <div className='input-cointainer'>
+      <label htmlFor={name} hidden></label>
+      <input type="text" className='custom-input' placeholder={placeholder} name={name} id={name} />
     </div>
   )
 }

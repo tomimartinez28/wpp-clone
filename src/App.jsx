@@ -1,13 +1,17 @@
 import { Route, Routes } from "react-router-dom"
-import MainContainer from "./components/MainContainer/MainContainer"
-import Home from "./components/Home/Home"
+import Layout from "./components/Layout/Layout"
+import Chat from "./components/ChatWindow/Chat/Chat"
+import HomeScreen from "./components/HomeScreen/HomeScreen"
+
 function App() {
   return (
    
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/chat/:chat_id" element={<MainContainer />} />
-    </Routes>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<HomeScreen/>}/>
+        <Route path="/chat/:chat_id" element={<Chat/>}/>
+      </Routes>
+    </Layout>
 
   )
 }
