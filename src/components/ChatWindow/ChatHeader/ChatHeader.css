@@ -1,7 +1,7 @@
 .chat-header {
     background-color: var(--dark-blue);
     height: 40px;
-    padding: 25px 10px;
+    padding: 25px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -39,7 +39,7 @@
     gap:25px;
 }
 
-.video-call-buttons {
+.video-call-icon {
     display: flex;
     align-items: center;
     gap:5px

@@ -1,6 +1,6 @@
 import React from 'react'
 import './ChatHeader.css'
-
+import Dropdown from '../../ui/Dropdown/Dropdown'
 
 
 const ChatHeader = ({name, img}) => {
@@ -15,15 +15,44 @@ const ChatHeader = ({name, img}) => {
         </div>
       </div>
       <div className='header-menu-buttons'>
-        <span className='video-call-buttons'>
-          <i className="bi bi-camera-video-fill"></i>
-          <i className="bi bi-chevron-down"></i>
-        </span>
-        <i className="bi bi-search"></i>
-        <i className="bi bi-three-dots-vertical"></i>
+          
+          <Dropdown buttonContent={<VideoCallBtnIcon />}>
+              <div>Haz llamadas con la aplicación de MAC.</div>
+          </Dropdown>
+          <SearchBtnIcon />
+
+          <Dropdown buttonContent={<MenuBtnIcon/>}>
+            <nav>
+              <p>Opcion 1</p>
+              <p>Opcion 2</p>
+            </nav>
+          </Dropdown>
+          
+        
       </div>
     </header>
   )
+}
+
+const VideoCallBtnIcon = () => {
+  return(
+    <span className='video-call-icon'>
+            <i className="bi bi-camera-video-fill"></i> 
+            <i className="bi bi-chevron-down"></i>
+    </span> 
+  )
+}
+
+const SearchBtnIcon = () => {
+  return(
+    <i className="bi bi-search"></i>
+  )
+}
+
+const MenuBtnIcon = () => {
+  return(
+    <i className="bi bi-three-dots-vertical"></i>
+  ) 
 }
 
 export default ChatHeader

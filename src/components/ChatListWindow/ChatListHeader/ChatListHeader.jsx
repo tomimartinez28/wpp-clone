@@ -2,7 +2,7 @@ import './ChatListHeader.css'
 import { BiMessageSquareAdd } from "react-icons/bi";
 import { SlOptionsVertical } from "react-icons/sl";
 import { IoSearch } from "react-icons/io5";
-import Input from '../../Input/Input';
+import Input from '../../ui/Input/Input';
 import React from 'react'
 
 const ChatListHeader = () => {

@@ -1,0 +1,18 @@
+.dropdown {
+    background-color: #202c33;
+    padding: 15px;
+    border-radius: 15px;
+    transition: all 800ms;
+}
+
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 100px;
+}
+
+.dropdown-btn.active {
+    background-color: #374248;
+}

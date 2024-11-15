@@ -1,6 +1,6 @@
 import React, {useId, useState} from 'react'
 import './ChatFooter.css'
-import Input from '../../Input/Input'
+import Input from '../../ui/Input/Input';
 import { BsEmojiLaughing } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa6";
 import { IoSend } from "react-icons/io5";

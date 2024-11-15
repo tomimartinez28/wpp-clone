@@ -1,6 +1,6 @@
 import React from 'react'
 import './ChatListFooter.css'
-import LogoWpp from '../../Logos/LogoWpp'
+import LogoWpp from '../../ui/Logos/LogoWpp'
 const ChatListFooter = () => {
   return (
     <footer className='chatlist-footer'>
