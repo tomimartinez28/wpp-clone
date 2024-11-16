@@ -1,18 +1,21 @@
-import React from 'react'
+import Reactm, { useState } from 'react'
 import './ChatList.css'
 import chats from '../../../data/chats'
 import ChatItem from '../ChatItem/ChatItem'
 import ChatListHeader from '../ChatListHeader/ChatListHeader'
 import ChatListFooter from '../ChatListFooter/ChatListFooter'
 
+
 const ChatList = () => {
-  
+  const [filteredChats, setFilteredChats] = useState(chats)
+
+
 
   return (
     <div className='chatlist-window'>
-        <ChatListHeader/>
+        <ChatListHeader setFilteredChats={setFilteredChats} />
         <div className='chatlist-items-container'>
-          {chats.map(chat => {
+          {filteredChats.map(chat => {
             return(
               <ChatItem key={chat.id} {...chat}/>
             )

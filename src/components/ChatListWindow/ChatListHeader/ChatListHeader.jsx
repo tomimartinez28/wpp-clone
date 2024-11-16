@@ -3,9 +3,18 @@ import { BiMessageSquareAdd } from "react-icons/bi";
 import { SlOptionsVertical } from "react-icons/sl";
 import { IoSearch } from "react-icons/io5";
 import Input from '../../ui/Input/Input';
-import React from 'react'
+import React, {useState} from 'react'
+import chats from '../../../data/chats';
 
-const ChatListHeader = () => {
+const ChatListHeader = ({setFilteredChats}) => {
+
+  const handleInputChange = (e) => {
+    const searchedValue = e.target.value.toLowerCase()
+    const newFilteredChats = chats.filter(chat => chat.name.toLowerCase().includes(searchedValue))
+    setFilteredChats(newFilteredChats)
+  }
+
+
   return (
     <header className='chatlist-header'>
         <div className='chatlist-header-title'>
@@ -15,10 +24,12 @@ const ChatListHeader = () => {
                 <SlOptionsVertical />
             </div>
         </div>
-        <div className='chat-searcher'>
-          <span><IoSearch /></span>
-          <Input placeholder='Buscar' name='searcher'/>
-        </div>
+        <form>
+          <div className='chat-searcher'>
+            <span><IoSearch /></span>
+            <Input placeholder='Buscar' name='searcher' onChange={handleInputChange} />
+          </div>
+        </form>
     </header>
   )
 }
