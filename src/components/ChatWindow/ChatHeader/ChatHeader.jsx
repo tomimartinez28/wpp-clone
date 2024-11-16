@@ -1,6 +1,7 @@
 import React from 'react'
 import './ChatHeader.css'
 import Dropdown from '../../ui/Dropdown/Dropdown'
+import { Link } from 'react-router-dom'
 
 
 const ChatHeader = ({name, img}) => {
@@ -22,9 +23,9 @@ const ChatHeader = ({name, img}) => {
           <SearchBtnIcon />
 
           <Dropdown buttonContent={<MenuBtnIcon/>}>
-            <nav>
-              <p>Opcion 1</p>
-              <p>Opcion 2</p>
+            <nav className='dropdown-menu'>
+              <Link>Info. de contacto</Link>
+              <Link to='/'>Cerrar chat</Link>
             </nav>
           </Dropdown>
           
