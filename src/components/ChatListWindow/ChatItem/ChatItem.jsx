@@ -3,12 +3,12 @@ import './ChatItem.css'
 import { Link, useParams } from 'react-router-dom'
 import renderMessageStatus from '../../../helpers/renderMessageSatus'
 
-const ChatItem = ({id, name, img, messages}) => {
+const ChatItem = ({id, name, img, messages, onClick}) => {
   const {chat_id} = useParams()
   const lastMessage = messages[messages.length - 1]
 
   return (
-    <Link to={`/chat/${id}`}>
+    <Link to={`/chat/${id}`} onClick={onClick}>
       <div className={`chat-item ${chat_id == id ? 'selected' : ''}`}>
         <div className='profile-picture'>
           <img src={img} alt={`Foto de perfil de ${name}`}/>

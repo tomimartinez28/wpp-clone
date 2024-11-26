@@ -14,6 +14,10 @@
     gap: 10px;
 }
 
+.user-profile svg {
+    height: 46px;
+}
+
 .user-profile h4 {
     font-weight: 500;
     font-size: 14px;

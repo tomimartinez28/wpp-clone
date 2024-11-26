@@ -2,12 +2,19 @@ import React from 'react'
 import './ChatHeader.css'
 import Dropdown from '../../ui/Dropdown/Dropdown'
 import { Link } from 'react-router-dom'
+import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
+import useIsDesktop from '../../../customHooks/useIsDesktop';
 
+const ChatHeader = ({name, img, handleToggleChatList}) => {
+  const isDesktop = useIsDesktop()
 
-const ChatHeader = ({name, img}) => {
   return (
     <header className='chat-header'>
       <div className='user-profile'>
+        {
+          !isDesktop
+          && <button onClick={handleToggleChatList}><MdOutlineKeyboardArrowLeft size={25} /></button>
+        }
         <span className='user-avatar'>
           <img src={img} alt={`Foto de perfil de ${name}`}/>
         </span>

@@ -5,10 +5,11 @@ import ChatFooter from '../ChatFooter/ChatFooter'
 import './Chat.css'
 import chats from '../../../data/chats'
 import { useParams } from 'react-router-dom'
+import useIsDesktop from '../../../customHooks/useIsDesktop'
 
 
-const Chat = () => {
-  const { chat_id } = useParams() // aca voy a usar el useParmas
+const Chat = ({handleToggleChatList}) => {
+  const { chat_id } = useParams()
   const selectedChat = chats.find(chat => chat.id == chat_id)
   const [messages, setMessages] = useState(selectedChat.messages)
 
@@ -26,7 +27,7 @@ const Chat = () => {
 
   return (
     <div className='chat-window'>
-        <ChatHeader {...selectedChat}/>
+        <ChatHeader {...selectedChat} handleToggleChatList={handleToggleChatList} />
         <MessagesContainer messages={messages} />
         <ChatFooter handleNewMessage={handleNewMessage} />
     </div>

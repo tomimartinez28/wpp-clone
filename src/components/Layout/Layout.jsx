@@ -1,10 +1,14 @@
 import React from 'react'
 import ChatList from '../ChatListWindow/ChatList/ChatList'
 
-const Layout = ({children}) => {
+
+const Layout = ({children, isChatListOpen, handleToggleChatList}) => {
+  
+
+
   return (
         <div className='main-container'>
-            <ChatList />
+            <ChatList isChatListOpen={isChatListOpen} handleToggleChatList={handleToggleChatList} />
             {children}
         </div>
     
