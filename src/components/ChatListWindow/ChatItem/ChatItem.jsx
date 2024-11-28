@@ -5,6 +5,7 @@ import renderMessageStatus from '../../../helpers/renderMessageSatus'
 
 const ChatItem = ({id, name, img, messages, onClick}) => {
   const {chat_id} = useParams()
+  
   const lastMessage = messages[messages.length - 1]
 
   return (

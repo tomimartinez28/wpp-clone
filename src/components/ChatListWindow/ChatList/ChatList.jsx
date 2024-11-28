@@ -1,16 +1,20 @@
-import Reactm, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './ChatList.css'
-import chats from '../../../data/chats'
 import ChatItem from '../ChatItem/ChatItem'
 import ChatListHeader from '../ChatListHeader/ChatListHeader'
 import ChatListFooter from '../ChatListFooter/ChatListFooter'
-import useIsDesktop from '../../../customHooks/useIsDesktop'
+import { ChatsContext } from '../../../contexts/ChatsContext'
+
 
 
 const ChatList = ({isChatListOpen, handleToggleChatList}) => {
-  const [filteredChats, setFilteredChats] = useState(chats)
+  const {chatsState} = useContext(ChatsContext)
+  const [filteredChats, setFilteredChats] = useState(chatsState)
  
-  
+  useEffect(() => {
+    setFilteredChats(chatsState)
+  },[chatsState])
+
   return (
     <div className={`chatlist-window ${!isChatListOpen && 'close'}`}>
         <ChatListHeader setFilteredChats={setFilteredChats} />

@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './HomeScreen.css'
 import { Link } from 'react-router-dom'
 import { FaLock } from "react-icons/fa";
+
 const HomeScreen = () => {
+
+  
+  
   return (
     <div className='home-screen'>
         <div className='home-screen image-container'>

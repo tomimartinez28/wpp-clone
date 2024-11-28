@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './ChatHeader.css'
 import Dropdown from '../../ui/Dropdown/Dropdown'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import useIsDesktop from '../../../customHooks/useIsDesktop';
 
-const ChatHeader = ({name, img, handleToggleChatList}) => {
+
+const ChatHeader = ({handleToggleChatList, chat}) => {
   const isDesktop = useIsDesktop()
+  const {img, name} = chat
 
   return (
     <header className='chat-header'>

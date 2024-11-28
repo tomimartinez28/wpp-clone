@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './MessagesContainer.css'
 import Message from '../Message/Message'
 
-const MessagesContainer = ({messages}) => {
 
+const MessagesContainer = ({chat}) => {
   
+  const {messages} = chat
+
 return (
     <div className='messages-container'>
       {

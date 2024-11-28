@@ -3,15 +3,15 @@ import { BiMessageSquareAdd } from "react-icons/bi";
 import { SlOptionsVertical } from "react-icons/sl";
 import { IoSearch } from "react-icons/io5";
 import Input from '../../ui/Input/Input';
-import React, {useState} from 'react'
-import chats from '../../../data/chats';
+import React, {useContext, useState} from 'react'
+import { ChatsContext } from '../../../contexts/ChatsContext';
 
 const ChatListHeader = ({setFilteredChats}) => {
+  const {chatsState} = useContext(ChatsContext)
 
   const handleInputChange = (e) => {
     const searchedValue = e.target.value.toLowerCase()
-    const newFilteredChats = chats.filter(chat => chat.name.toLowerCase().includes(searchedValue))
-    setFilteredChats(newFilteredChats)
+    setFilteredChats(chatsState.filter(chat => chat.name.toLowerCase().includes(searchedValue)))
   }
 
 

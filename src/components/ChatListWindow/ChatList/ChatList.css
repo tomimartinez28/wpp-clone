@@ -7,11 +7,12 @@
     justify-content: space-between;
     background-color: #111B1F;
     overflow: scroll;
+    
 }
 
 .chatlist-window.close {
     translate: -100%;
-    transition: ease-in-out 200ms;
+    transition: ease-in-out 300ms;
 }
 
 .chatlist-items-container {
@@ -24,6 +25,7 @@
         position: absolute;
         width: 100%;
         z-index: 100;
+
     }
 }
 

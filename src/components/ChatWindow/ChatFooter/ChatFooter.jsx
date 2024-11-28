@@ -1,17 +1,17 @@
-import React, {useId, useState} from 'react'
+import React, {useContext, useId, useState} from 'react'
 import './ChatFooter.css'
 import Input from '../../ui/Input/Input';
 import { BsEmojiLaughing } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa6";
 import { IoSend } from "react-icons/io5";
 import { IoMdMic } from "react-icons/io";
-import extractFormData from '../../../helpers/extractFormData';
-import getFormattedTime from '../../../helpers/getFormattedTime';
+import { ChatsContext } from '../../../contexts/ChatsContext';
 
 
-const ChatFooter = ({handleNewMessage}) => {
+const ChatFooter = ({chat_id}) => {
   const [isWriting, setIsWriting] = useState(false)
-  const newMessageId = useId()
+  const { createNewMessage } = useContext(ChatsContext)
+  
   const handleFormChange = (e) => {
     const writtenText = e.target.value
     setIsWriting(writtenText !== '')
@@ -20,19 +20,16 @@ const ChatFooter = ({handleNewMessage}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    const newMessage = extractFormData(event.target)
-    if (newMessage.text === '') return
-    newMessage['id'] = new Date().getMilliseconds()
-    newMessage['time'] = getFormattedTime()
-    newMessage['status'] = 'received'
-    newMessage['type'] = 'sent'
-    handleNewMessage(newMessage)
+    const newMessageText = event.target['text'].value
+    if (newMessageText === '') return
+
+    createNewMessage(newMessageText, chat_id)
+    
+  
 
     // Limpia el formular io 
     event.target.reset()
     setIsWriting(false)
-
-    
   }
 
 
