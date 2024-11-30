@@ -14,10 +14,6 @@
     gap: 10px;
 }
 
-.user-profile svg {
-    height: 46px;
-}
-
 .user-profile h4 {
     font-weight: 500;
     font-size: 14px;
@@ -51,4 +47,10 @@
 
 .bi.bi-chevron-down {
     font-size: 8px;
+}
+
+@media screen and (min-width:768px) {
+    .user-profile svg {
+        display: none;
+    }
 }

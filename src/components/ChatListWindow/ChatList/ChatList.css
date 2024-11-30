@@ -1,32 +1,39 @@
 .chatlist-window {
     min-width: 300px;
     width: 30%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: #111B1F;
     overflow: scroll;
+    transition: all 700ms;
+}
+.chatlist-window.close {
+    translate: -100%;
     
 }
 
-.chatlist-window.close {
-    translate: -100%;
-    transition: ease-in-out 300ms;
-}
 
 .chatlist-items-container {
     height: 100%;
 }
 
 
-@media screen and (max-width: 768px) {
+
+
+
+@media screen and (max-width:768px) {
     .chatlist-window {
         position: absolute;
         width: 100%;
         z-index: 100;
-
     }
 }
 
-
+@media screen and (min-width:768px) {
+    .chatlist-window.close {
+        translate: 0px;
+        transition: none;
+    }
+}

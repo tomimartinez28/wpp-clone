@@ -7,7 +7,9 @@ const ChatListFooter = () => {
         <span className='logo-wpp'>
             <LogoWpp/>
         </span>
-        Obtener Whatsapp para Mac
+        <a href="https://web.whatsapp.com/" target='_blank' rel='noreferrer'>
+          Obtener Whatsapp para Mac
+        </a>
     </footer>
   )
 }

@@ -8,14 +8,14 @@ import './Chat.css'
 
 
 
-const Chat = ({handleToggleChatList}) => {
+const Chat = () => {
   const { chat_id } = useParams() 
   const { getChatById } = useContext(ChatsContext)
   const chat = getChatById(chat_id)
 
   return (
     <div className='chat-window'>
-        <ChatHeader chat={chat} handleToggleChatList={handleToggleChatList} />
+        <ChatHeader chat={chat} />
         <MessagesContainer chat={chat} />
         <ChatFooter chat_id={chat_id} />
     </div>

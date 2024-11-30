@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { createContext } from "react";
-import chats from '../data/chats';
+import chatsJSON from '../data/chats';
 import { v4 as uuidv4 } from 'uuid';
 import getFormattedTime from '../helpers/getFormattedTime';
-import { useParams } from 'react-router-dom';
 
 
 // Creo el contexto global
@@ -11,8 +10,19 @@ export const ChatsContext = createContext({})
 
 
 export const ChatsContextProvider = ({children}) => {
+    // Cargar datos iniciales desde localStorage o usar el JSON original
+    const initialChats = JSON.parse(localStorage.getItem("chatsState")) || chatsJSON;
+    const [chatsState, setChatsState] = useState(initialChats)
+    const [isChatlistOpen, setIsChatlistOpen] = useState(true)
 
-    const [chatsState, setChatsState] = useState(chats)
+    // Sincronizar cambios en chatsState con localStorage
+    useEffect(() => {
+        localStorage.setItem("chatsState", JSON.stringify(chatsState));
+    }, [chatsState]);
+
+    const handleToggleChatlist = () => {
+        setIsChatlistOpen(prev => !prev)
+    }
     
 
 
@@ -51,6 +61,8 @@ export const ChatsContextProvider = ({children}) => {
                 chatsState: chatsState,
                 getChatById: getChatById,
                 createNewMessage: createNewMessage,
+                handleToggleChatlist: handleToggleChatlist,
+                isChatlistOpen: isChatlistOpen,
             }
         }>
 

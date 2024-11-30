@@ -28,9 +28,9 @@ a {
 
 .main-container {
   display: flex;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   color: #f6f6f6;
-  
 }
 
 .dropdown-menu {
