@@ -1,10 +1,9 @@
-Aquí tienes el `README.md` actualizado con la nueva información:  
 
-```markdown
 # 📱 WhatsApp Clone - Proyecto Final Front-End 🟢
 
 Este proyecto es el resultado del trabajo final de la **Diplomatura en Desarrollo Front-End** de la **UTN**.  
-Se desarrolló un **clon de WhatsApp** con **mejoras en la responsividad** y funcionalidades propias, brindando una experiencia optimizada para diferentes dispositivos. 🚀
+
+Se optó por desarrollar una aplicación de mensajería estilo **WhatsApp**.
 
 🌐 **URL del despliegue**: [WhatsApp Clone en Vercel](https://wpp-clone-tawny.vercel.app)  
 
@@ -12,8 +11,8 @@ Se desarrolló un **clon de WhatsApp** con **mejoras en la responsividad** y fun
 
 ## 🛠️ Tecnologías Utilizadas
 El proyecto fue desarrollado con las siguientes tecnologías:  
-- **React** ⚛️: Biblioteca principal para construir la interfaz de usuario.  
-- **Vite** ⚡: Herramienta para desarrollo rápido y eficiente.  
+- **React** ⚛️: Biblioteca principal para construir la interfaz de usuario.
+- **Vite** ⚡: herramienta de compilación que tiene como objetivo proporcionar una experiencia de desarrollo más rápida y ágil para proyectos web modernos
 
 ### 📚 Librerías Adicionales
 - **React Icons**: Para agregar íconos personalizados. 🖼️  
@@ -24,7 +23,7 @@ El proyecto fue desarrollado con las siguientes tecnologías:
 
 ## ✨ Funcionalidades Principales
 - 🖥️ **Interfaz responsiva**: Diseño adaptable para computadoras, tablets y dispositivos móviles.  
-- 💬 **Mensajería simulada**: Interacción dinámica entre usuarios.  
+- 💬 **Mensajería simulada**: Emisión de mensajes. 
 - 📂 **Persistencia de datos**: Uso de **LocalStorage** para guardar mensajes y configuraciones.  
 - 🌐 **Estados globales nativos**: Gestión con `useContext` para simplificar el manejo del estado global.  
 - 🎨 **Personalización visual**: Uso de React Icons para mejorar la apariencia de los componentes.  
@@ -33,7 +32,8 @@ El proyecto fue desarrollado con las siguientes tecnologías:
 ---
 
 ## 📸 Capturas de Pantalla
-*Agrega aquí algunas capturas de pantalla del proyecto para ilustrar su funcionamiento.*
+![Desktop](/public/desktop-mockup.png)
+![Mobile](/public/mobile-mockup.png)
 
 ---
 
