@@ -2,6 +2,7 @@
     background-color: #212e35;
     color: var(--transparent-white);
     width: 70%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,4 +55,13 @@
     gap: 4px;
     font-size: 12px;
     font-weight: 400;
+}
+
+
+@media screen and (max-width:768px) {
+    .home-screen {
+        
+        width: 100%;
+
+    }
 }

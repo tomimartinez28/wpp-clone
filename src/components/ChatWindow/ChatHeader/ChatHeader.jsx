@@ -26,7 +26,7 @@ const ChatHeader = ({chat}) => {
       <div className='header-menu-buttons'>
           
           <Dropdown buttonContent={<VideoCallBtnIcon />}>
-              <div>Haz llamadas con la aplicación de MAC.</div>
+              <div className='dropdown-message'>Haz llamadas con la aplicación de MAC.</div>
           </Dropdown>
           <SearchBtnIcon />
 

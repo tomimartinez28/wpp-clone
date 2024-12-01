@@ -63,6 +63,7 @@ export const ChatsContextProvider = ({children}) => {
                 createNewMessage: createNewMessage,
                 handleToggleChatlist: handleToggleChatlist,
                 isChatlistOpen: isChatlistOpen,
+                setIsChatlistOpen: setIsChatlistOpen,
             }
         }>
 

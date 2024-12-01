@@ -39,6 +39,9 @@ a {
   color: #f6f6f6;
   padding-top: 10px;
 }
+.dropdown-message {
+  padding: 10px;
+}
 
 .dropdown-menu * {
   padding: 5px 25px;

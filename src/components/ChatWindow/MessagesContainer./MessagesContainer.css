@@ -1,7 +1,7 @@
 .messages-container {
     background-image: url("/assets/chat-background.jpg");
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     padding: 10px 10px;

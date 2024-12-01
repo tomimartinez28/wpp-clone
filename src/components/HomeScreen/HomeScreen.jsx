@@ -1,12 +1,17 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './HomeScreen.css'
 import { Link } from 'react-router-dom'
 import { FaLock } from "react-icons/fa";
+import { ChatsContext } from '../../contexts/ChatsContext';
 
 const HomeScreen = () => {
 
+  const {setIsChatlistOpen} = useContext(ChatsContext)
   
-  
+  useEffect(() => {
+    setIsChatlistOpen(true)
+  },[])
+
   return (
     <div className='home-screen'>
         <div className='home-screen image-container'>
