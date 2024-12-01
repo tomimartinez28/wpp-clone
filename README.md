@@ -59,23 +59,3 @@ Sigue estos pasos para ejecutar el proyecto localmente:
 
 4. **Abre en tu navegador**:  
    Accede a [http://localhost:5173](http://localhost:5173).
-
----
-
-## 🤝 Contribuciones
-¡Las contribuciones son bienvenidas! 🎉  
-Si deseas aportar mejoras o ideas, abre un **issue** o realiza un **pull request**.  
-
----
-
-## 📄 Licencia
-Este proyecto se encuentra bajo la licencia **MIT**.  
-
----
-
-## 🙌 Agradecimientos
-Gracias a los profesores de la **UTN** y a los compañeros por su apoyo en la creación de este proyecto.  
-¡Seguimos aprendiendo y construyendo juntos! 🌟
-```
-
-Este formato resalta claramente las tecnologías utilizadas, las funcionalidades y el despliegue en Vercel. ¡Espero que te guste! 😊
