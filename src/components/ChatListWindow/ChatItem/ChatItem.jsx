@@ -9,7 +9,7 @@ const ChatItem = ({id, name, img, messages, onClick}) => {
   const {handleToggleChatlist} = useContext(ChatsContext)
   
   const lastMessage = messages[messages.length - 1]
-
+ 
   return (
     <Link to={`/chat/${id}`} onClick={handleToggleChatlist}>
       <div className={`chat-item ${chat_id == id ? 'selected' : ''}`}>

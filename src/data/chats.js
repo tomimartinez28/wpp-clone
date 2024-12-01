@@ -112,6 +112,11 @@ const chats = [
             }
         ]
     },
+    {
+        id: 5,
+        name: 'Probando mensajes vacios',
+        img: '/assets/profile-pictures/john-paul-jones.jpg',
+    },
 ]
 
 

@@ -11,7 +11,8 @@ const ChatListHeader = ({setFilteredChats}) => {
 
   const handleInputChange = (e) => {
     const searchedValue = e.target.value.toLowerCase()
-    setFilteredChats(chatsState.filter(chat => chat.name.toLowerCase().includes(searchedValue)))
+    const filteredChats = chatsState.filter(chat => chat.name.toLowerCase().includes(searchedValue))
+    setFilteredChats(filteredChats)
   }
 
 
@@ -24,7 +25,7 @@ const ChatListHeader = ({setFilteredChats}) => {
                 <SlOptionsVertical />
             </div>
         </div>
-        <form>
+        <form onSubmit={(e) => e.preventDefault()}>
           <div className='chat-searcher'>
             <span><IoSearch /></span>
             <Input placeholder='Buscar' name='searcher' onChange={handleInputChange} />

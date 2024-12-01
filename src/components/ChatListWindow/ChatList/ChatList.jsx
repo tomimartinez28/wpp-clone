@@ -13,7 +13,10 @@ const ChatList = () => {
   
  
   useEffect(() => {
-    setFilteredChats(chatsState)
+    // Filtrar chats con mensajes y ordenar por el tiempo del último mensaje
+    const filteredChats = chatsState.filter(chat => chat.messages.length > 0) 
+    console.log('Chats filtrados', filteredChats);
+    setFilteredChats(filteredChats)
   },[chatsState])
 
   return (
@@ -22,7 +25,8 @@ const ChatList = () => {
         <div className='chatlist-items-container'>
           {filteredChats.map(chat => {
             return(
-              <ChatItem key={chat.id} {...chat}/>
+                chat.messages.length > 0
+                && <ChatItem key={chat.id} {...chat}/>              
             )
           })}
         </div>
