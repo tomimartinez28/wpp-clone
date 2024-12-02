@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import renderMessageStatus from '../../../helpers/renderMessageSatus'
 import { ChatsContext } from '../../../contexts/ChatsContext'
 
-const ChatItem = ({id, name, img, messages, onClick}) => {
+const ChatItem = ({id, name, img, messages}) => {
   const {chat_id} = useParams()
   const {handleToggleChatlist} = useContext(ChatsContext)
   
