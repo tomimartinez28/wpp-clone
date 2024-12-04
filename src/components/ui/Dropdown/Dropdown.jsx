@@ -32,12 +32,13 @@ const Dropdown = ({buttonContent, children}) => {
 
         // Verifico si se sale del viewport para la derecha o para abajo, nunca podria ser para izquierda o para arriba por como seteo la posicion.
         const isOverflowingRight = buttonRect.left + dropdownRect.width > window.innerWidth
-        const isOverflowingBottom = buttonRect.top + dropdownRect.height > window.innerHeight
+        const isOverflowingBottom = buttonRect.bottom + dropdownRect.height > window.innerHeight
 
         
+    
 
         setPosition({
-          top: isOverflowingBottom ? 'auto' : buttonRect.bottom + window.scrollY, // en mi caso el scrollY es al pedo, porque no hay scroll vertical. Pero lo dejo para que sea mas generico.
+          top: isOverflowingBottom ? 'auto' : buttonRect.bottom + window.scrollY, 
           bottom: isOverflowingBottom ? window.innerHeight - buttonRect.top : 'auto',
           left: isOverflowingRight ? 'auto' : buttonRect.left,
           right: isOverflowingRight ? window.innerWidth - buttonRect.right : 'auto',

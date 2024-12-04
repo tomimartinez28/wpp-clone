@@ -5,6 +5,7 @@ import { IoSearch } from "react-icons/io5";
 import Input from '../../ui/Input/Input';
 import React, {useContext, useState} from 'react'
 import { ChatsContext } from '../../../contexts/ChatsContext';
+import Dropdown from '../../ui/Dropdown/Dropdown';
 
 const ChatListHeader = ({setFilteredChats}) => {
   const {chatsState} = useContext(ChatsContext)
@@ -21,8 +22,14 @@ const ChatListHeader = ({setFilteredChats}) => {
         <div className='chatlist-header-title'>
             <h3>Chats</h3>
             <div className='chatlist-header-icons'>
-                <BiMessageSquareAdd />
-                <SlOptionsVertical />
+              <Dropdown buttonContent={<BiMessageSquareAdd size={18} />}>
+                <div className='dropdown-message'>Esta funcionalidad no esta lista aún.</div>
+              </Dropdown>
+              <Dropdown buttonContent={<SlOptionsVertical />}>
+                <div className="dropdown-message">Esta funcionalidad no esta lista aún.</div>
+              </Dropdown>
+                
+                
             </div>
         </div>
         <form onSubmit={(e) => e.preventDefault()}>

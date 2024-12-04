@@ -6,7 +6,7 @@ import { FaPlus } from "react-icons/fa6";
 import { IoSend } from "react-icons/io5";
 import { IoMdMic } from "react-icons/io";
 import { ChatsContext } from '../../../contexts/ChatsContext';
-
+import Dropdown from '../../ui/Dropdown/Dropdown';
 
 const ChatFooter = ({chat_id}) => {
   const [isWriting, setIsWriting] = useState(false)
@@ -36,12 +36,21 @@ const ChatFooter = ({chat_id}) => {
   return (
     <footer className='chat-footer'>
       <div className='chat-footer-icons'>
-        <span>
-          <BsEmojiLaughing />
-        </span>
-        <span>
-        <FaPlus />
-        </span>
+        
+          <Dropdown buttonContent={<BsEmojiLaughing />} >
+
+          <div className='dropdown-message'>
+            Esta funcionalidad no esta lista aún.
+          </div>
+          </Dropdown>
+        
+        <Dropdown buttonContent={<FaPlus />}>
+          <div className="dropdown-message">
+              Esta funcionalidad no esta lista aún.
+          </div>
+        </Dropdown>
+        
+        
       </div>
       
       <form className='message-form' onChange={handleFormChange} onSubmit={handleSubmit}>
@@ -51,7 +60,9 @@ const ChatFooter = ({chat_id}) => {
         {
           isWriting
           ? <button type='submit'><IoSend /></button>
-          : <button type='submit'><IoMdMic /></button>
+          : <Dropdown buttonContent={<IoMdMic />}>
+              <div className="dropdown-message">Todavía no es posible enviar audios.</div>
+            </Dropdown>
         }
        
       </form>

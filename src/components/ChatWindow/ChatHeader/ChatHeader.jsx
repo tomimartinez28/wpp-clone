@@ -28,11 +28,13 @@ const ChatHeader = ({chat}) => {
           <Dropdown buttonContent={<VideoCallBtnIcon />}>
               <div className='dropdown-message'>Haz llamadas con la aplicación de MAC.</div>
           </Dropdown>
-          <SearchBtnIcon />
+          <Dropdown buttonContent={<SearchBtnIcon />}>
+            <div className="dropdown-message">Todavía no es posible realizar búsquedas.</div>
+          </Dropdown>
+          
 
           <Dropdown buttonContent={<MenuBtnIcon/>}>
             <nav className='dropdown-menu'>
-              <Link>Info. de contacto</Link>
               <Link to='/'>Cerrar chat</Link>
             </nav>
           </Dropdown>

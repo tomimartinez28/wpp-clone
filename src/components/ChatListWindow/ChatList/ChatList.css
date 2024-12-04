@@ -7,6 +7,7 @@
     justify-content: space-between;
     background-color: #111B1F;
     overflow-y: scroll;
+    overflow-x: visible;
     transition: all 700ms;
 }
 .chatlist-window.close {
