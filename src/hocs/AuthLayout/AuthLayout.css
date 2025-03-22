@@ -1,0 +1,113 @@
+.auth-layout {
+    height: 100vh;
+    background-color: #fcf5eb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.auth-layout a {
+    color: var(--logo-green);
+}
+
+
+.form-container {
+    width: 70%;
+    max-width: 700px;
+    max-height: 800px;
+    background-color: white;
+    border: 1px solid;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+}
+.form-container-columns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-container-columns img {   
+    width: 340px;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.695);
+}
+
+.form-container h2 {
+    font-weight: 400;
+    font-size: 30px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;    
+}
+
+input {
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid;
+
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid var(--logo-green);
+    box-shadow: 0 0 5px rgba(94, 92, 91, 0.5); 
+}
+
+
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    flex-wrap: nowrap;
+}
+
+.form button {
+    padding: 5px;
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.form button:hover {
+    background-color: var(--logo-green);
+    color: white;
+}
+
+
+
+.fake-wpp-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--logo-green);
+    position: absolute;
+    top: 20px;
+    left: 40px;
+
+}
+
+.fake-wpp-logo svg {
+    width: 32px;
+}
+
+

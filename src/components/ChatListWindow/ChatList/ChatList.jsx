@@ -4,36 +4,39 @@ import ChatItem from '../ChatItem/ChatItem'
 import ChatListHeader from '../ChatListHeader/ChatListHeader'
 import ChatListFooter from '../ChatListFooter/ChatListFooter'
 import { ChatsContext } from '../../../contexts/ChatsContext'
-
+import { AuthContext } from '../../../contexts/AuthContext'
+import Loader from '../../ui/Loader/Loader'
 
 
 const ChatList = () => {
-  const {chatsState, isChatlistOpen} = useContext(ChatsContext)
-  const [filteredChats, setFilteredChats] = useState(chatsState)
-  
- 
-  useEffect(() => {
-    // Filtrar chats con mensajes y ordenar por el tiempo del último mensaje
-    const filteredChats = chatsState.filter(chat => chat.messages.length > 0) 
-    console.log('Chats filtrados', filteredChats);
-    setFilteredChats(filteredChats)
-  },[chatsState])
+  const { chatsState, isChatlistOpen, getChatTitle, getChatImgSrc } = useContext(ChatsContext)
+  const [filteredChats, setFilteredChats] = useState([])
+  const { user } = useContext(AuthContext)
+
+
+
+
 
   return (
     <div className={`chatlist-window ${isChatlistOpen ? 'open' : 'close'}`}>
-        <ChatListHeader setFilteredChats={setFilteredChats} />
-        <div className='chatlist-items-container'>
-          {filteredChats.map(chat => {
-            return(
-                chat.messages.length > 0
-                && <ChatItem key={chat.id} {...chat}/>              
-            )
-          })}
-        </div>
-        
-        <ChatListFooter/>
+      <ChatListHeader setFilteredChats={setFilteredChats} />
+      <div className='chatlist-items-container'>
+        {
+          chatsState
+            ?
+            chatsState.map(chat => {
 
-      
+              return (
+                <ChatItem key={chat._id} _id={chat._id} avatar={getChatImgSrc(chat, user)} chat_title={getChatTitle(chat, user)} />
+              )
+            })
+            : <Loader />
+        }
+      </div>
+
+      <ChatListFooter />
+
+
     </div>
   )
 }

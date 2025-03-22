@@ -3,12 +3,15 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './global.css'
 import { ChatsContextProvider } from './contexts/ChatsContext.jsx'
+import AuthContextProvider from './contexts/AuthContext.jsx'
 
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <ChatsContextProvider>
-      <App />
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
     </ChatsContextProvider>
   </BrowserRouter>,
 )

@@ -1,0 +1,11 @@
+.error-alert {
+    border: 1px solid red;
+    background-color: rgba(255, 0, 0, 0.608);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.error-alert.success{
+    border: 1px solid green;
+    background-color: rgba(0, 128, 0, 0.445);
+}
