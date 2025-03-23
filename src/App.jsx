@@ -8,6 +8,8 @@ import RewritePasswordScreen from "./screens/RewritePasswordScreen/RewritePasswo
 import RegisterScreen from "./screens/RegisterScreen/RegisterScreen"
 import ResetPasswordScreen from "./screens/ResetPasswordScreen/ResetPasswordScreen"
 import AuthLayout from "./hocs/AuthLayout/AuthLayout"
+import NewChatScreen from "./screens/NewChatScreen/NewChatScreen"
+
 function App() {
 
 
@@ -26,6 +28,7 @@ function App() {
       <Route element={<ChatLayout />}>
         <Route path="/home" element={<HomeScreen />} />
         <Route path="/chat/:chat_id" element={<Chat />} />
+        <Route path="/new-chat/:user_id" element={<NewChatScreen />} />
       </Route>
 
       {/* Redirigir cualquier otra ruta a login */}

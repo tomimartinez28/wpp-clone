@@ -1,4 +1,5 @@
 .chatlist-window {
+    position: fixed;
     min-width: 300px;
     width: 30%;
     height: 100vh;
@@ -11,7 +12,7 @@
     transition: all 700ms;
 }
 .chatlist-window.close {
-    translate: -100%;
+    transform: translate(-100%);
     
 }
 
@@ -34,7 +35,7 @@
 
 @media screen and (min-width:768px) {
     .chatlist-window.close {
-        translate: 0px;
+        transform: translate(0);
         transition: none;
     }
 }

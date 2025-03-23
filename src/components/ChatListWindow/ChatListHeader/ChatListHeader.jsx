@@ -3,16 +3,17 @@ import { BiMessageSquareAdd } from "react-icons/bi";
 import { SlOptionsVertical } from "react-icons/sl";
 import { IoSearch } from "react-icons/io5";
 import Input from '../../ui/Input/Input';
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { ChatsContext } from '../../../contexts/ChatsContext';
 import Dropdown from '../../ui/Dropdown/Dropdown';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
 
-const ChatListHeader = ({ setFilteredChats }) => {
+
+const ChatListHeader = ({ setFilteredChats,  setIsUserListOpen}) => {
   const { chatsState } = useContext(ChatsContext)
   const { logout } = useContext(AuthContext)
-
+  
   const handleInputChange = (e) => {
     const searchedValue = e.target.value.toLowerCase()
     const filteredChats = chatsState.filter(chat => chat.name.toLowerCase().includes(searchedValue))
@@ -25,9 +26,10 @@ const ChatListHeader = ({ setFilteredChats }) => {
       <div className='chatlist-header-title'>
         <h3>Chats</h3>
         <div className='chatlist-header-icons'>
-          <Dropdown buttonContent={<BiMessageSquareAdd size={18} />}>
-            <div className='dropdown-message'>Esta funcionalidad no esta lista aún.</div>
-          </Dropdown>
+          
+          <BiMessageSquareAdd size={18} onClick={() => setIsUserListOpen(true)} />
+
+
           <Dropdown buttonContent={<SlOptionsVertical />}>
             <div className="dropdown-message">
               <Link onClick={logout}>Cerrar sesión</Link>
@@ -43,6 +45,8 @@ const ChatListHeader = ({ setFilteredChats }) => {
           <Input placeholder='Buscar' name='searcher' onChange={handleInputChange} />
         </div>
       </form>
+
+      
     </header>
   )
 }

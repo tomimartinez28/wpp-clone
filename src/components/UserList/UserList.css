@@ -1,0 +1,135 @@
+.user-list {
+    min-width: 300px;
+    width: 30%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #111B1F;
+    overflow-y: scroll;
+    overflow-x: visible;
+    transition: all 700ms;
+    z-index: 150;
+}
+.user-list.close {
+    transform: translate(-100%);
+    
+}
+
+
+.user-list-items-container {
+    height: 100%;
+}
+
+
+.user-list-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 10px;
+}
+.user-list-header-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px 10px 10px;
+}
+
+
+
+
+
+.chat-searcher {
+    color: var(--transparent-white);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--dark-blue);
+    border-radius: 8px;
+    padding: 6px 12px;
+}
+
+.chat-searcher span {
+    font-size: 15px;
+}
+
+/* Estilos del chat item */
+
+.chat-item {
+    font-size: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 15px;
+    color: #f6f6f6;
+    border-bottom: solid .5px var(--dark-blue);
+}
+
+.chat-item h3 {
+    font-weight: 500;
+}
+
+.chat-item:hover {
+    background-color: var(--dark-blue);
+}
+
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.chat-item-info {
+    width: 100%;
+
+}
+.chat-item-info.header {
+    display: flex;
+    width: 100%;    
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.chat-item-info.info {
+    display: flex;
+    align-items: center;
+    gap:4px;
+}
+
+
+.chat-item-info .time {
+    color: var(--transparent-white);
+}
+
+.chat-item-info .info {
+    color: var(--transparent-white);
+}
+
+
+
+
+/* Media queries */
+@media screen and (max-width:768px) {
+    .user-list {
+        position: absolute;
+        width: 100%;
+        z-index: 150;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .users-list.close {
+        translate: 0px;
+        transition: none;
+    }
+}

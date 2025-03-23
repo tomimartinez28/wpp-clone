@@ -1,0 +1,20 @@
+.new-chat-screen {
+    background-color: #212e35;
+    color: var(--transparent-white);
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+@media screen and (max-width:768px) {
+    .new-chat-screen {
+        width: 100%;
+
+    }
+}
+

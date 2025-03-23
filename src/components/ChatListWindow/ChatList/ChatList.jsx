@@ -8,7 +8,7 @@ import { AuthContext } from '../../../contexts/AuthContext'
 import Loader from '../../ui/Loader/Loader'
 
 
-const ChatList = () => {
+const ChatList = ({setIsUserListOpen}) => {
   const { chatsState, isChatlistOpen, getChatTitle, getChatImgSrc } = useContext(ChatsContext)
   const [filteredChats, setFilteredChats] = useState([])
   const { user } = useContext(AuthContext)
@@ -19,7 +19,7 @@ const ChatList = () => {
 
   return (
     <div className={`chatlist-window ${isChatlistOpen ? 'open' : 'close'}`}>
-      <ChatListHeader setFilteredChats={setFilteredChats} />
+      <ChatListHeader setFilteredChats={setFilteredChats} setIsUserListOpen={setIsUserListOpen} />
       <div className='chatlist-items-container'>
         {
           chatsState
