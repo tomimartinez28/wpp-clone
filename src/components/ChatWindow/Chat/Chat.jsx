@@ -7,13 +7,14 @@ import { useParams } from 'react-router-dom'
 import { AuthContext } from '../../../contexts/AuthContext'
 import './Chat.css'
 import Loader from '../../ui/Loader/Loader'
-
+import useChatInfo from '../../../hooks/useChatInfo'
 
 const Chat = () => {
   const { chat_id } = useParams()
-  const { getChatTitle, getChatImgSrc, chatsState } = useContext(ChatsContext)
+  const { chatsState } = useContext(ChatsContext)
   const { user } = useContext(AuthContext)
   const [selectedChatState, setSelectedChatState] = useState(null)
+  const { chatTitle, chatAvatar } = useChatInfo(selectedChatState)
 
 
   useEffect(() => {
@@ -36,7 +37,7 @@ const Chat = () => {
         selectedChatState
         &&
         <>
-          <ChatHeader chat_title={getChatTitle(selectedChatState, user)} avatar={getChatImgSrc(selectedChatState, user)} />
+          <ChatHeader chat_title={chatTitle} avatar={chatAvatar} />
           <MessagesContainer messages={selectedChatState.messages} />
           <ChatFooter chat_id={chat_id} />
         </>

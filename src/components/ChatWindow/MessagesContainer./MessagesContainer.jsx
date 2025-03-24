@@ -1,12 +1,16 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useContext } from 'react'
 import './MessagesContainer.css'
 import Message from '../Message/Message'
+
+import Loader from '../../ui/Loader/Loader'
 
 
 const MessagesContainer = ({ messages }) => {
 
-
+  
   const containerRef = useRef(null)
+
+  
 
   useEffect(() => {
 
@@ -19,12 +23,20 @@ const MessagesContainer = ({ messages }) => {
   return (
     <div className='messages-container' ref={containerRef}>
       {
-        messages &&
-        messages.map(message => {
+
+        messages
+        ? messages.map(message => {
           return (
-            <Message key={message._id} {...message} />
+            <Message 
+              key={message._id} 
+              message={message}
+              
+              />
           )
         })
+        : <Loader/>
+      
+        
       }
     </div>
   )

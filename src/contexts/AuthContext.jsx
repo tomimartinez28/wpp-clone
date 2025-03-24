@@ -1,12 +1,12 @@
 import React, { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useApiRequest } from "../hooks/useApiRequest";
+
 import ENVIRONMENT from "../config/environment";
 export const AuthContext = createContext()
 
 const AuthContextProvider = ({ children }) => {
     const navigate = useNavigate()
-    const [user, setUser] = useState(sessionStorage.getItem('user'))
+    const [user, setUser] = useState(JSON.parse(sessionStorage.getItem('user')))
     
 
 

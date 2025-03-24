@@ -2,23 +2,23 @@ import React, { useContext } from 'react'
 import './Message.css'
 import renderMessageStatus from '../../../helpers/renderMessageSatus'
 import { AuthContext } from '../../../contexts/AuthContext'
-import { ChatsContext } from '../../../contexts/ChatsContext'
+import useMessageInfo from '../../../hooks/useMessageInfo'
 
-const Message = ({ content, created_at, sender }) => {
-  const { user } = useContext(AuthContext)
-  const { getMessageType } = useContext(ChatsContext)
-  const type = getMessageType(sender, user)
-  
+const Message = ({ message }) => {
+
+  const { messageType } = useMessageInfo(message)
+
+
 
   return (
 
-    <div className={`message-bubble-container ${type}`}>
-      <div className={`message-bubble ${type}`}>
-        <p>{content}</p>
+    <div className={`message-bubble-container ${messageType}`}>
+      <div className={`message-bubble ${messageType}`}>
+        <p>{message.content}</p>
         <span className='message-bubble-data'>
-          <p>{created_at}</p>
+          <p>{message.created_at}</p>
           {
-            type === 'sent'
+            messageType === 'sent'
             && <span className={`status-icon ${status}`}>{renderMessageStatus(status)}</span>
           }
         </span>

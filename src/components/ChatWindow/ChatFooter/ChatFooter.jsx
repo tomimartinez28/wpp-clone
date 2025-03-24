@@ -1,4 +1,4 @@
-import React, {useContext, useId, useState} from 'react'
+import React, { useContext, useEffect, useId, useState } from 'react'
 import './ChatFooter.css'
 import Input from '../../ui/Input/Input';
 import { BsEmojiLaughing } from "react-icons/bs";
@@ -7,28 +7,39 @@ import { IoSend } from "react-icons/io5";
 import { IoMdMic } from "react-icons/io";
 import { ChatsContext } from '../../../contexts/ChatsContext';
 import Dropdown from '../../ui/Dropdown/Dropdown';
-
-const ChatFooter = ({chat_id}) => {
+import { useForm } from '../../../hooks/useForm';
+import { useApiRequest } from '../../../hooks/useApiRequest';
+import ENVIRONMENT from '../../../config/environment';
+const ChatFooter = ({ chat_id }) => {
   const [isWriting, setIsWriting] = useState(false)
-  const { createNewMessage } = useContext(ChatsContext)
-  
+  const { handleInputChange, formState, resetForm } = useForm({ text: '' })
+  const { responseApiState, sendPostRequest } = useApiRequest(ENVIRONMENT.API_URL + `/api/message/create/${chat_id}`)
+
+  useEffect(()=> {
+    if(responseApiState.data) {
+      console.log(responseApiState.data.payload);
+    }
+  },[responseApiState])
+
   const handleFormChange = (e) => {
     const writtenText = e.target.value
     setIsWriting(writtenText !== '')
   }
 
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const newMessageText = event.target['text'].value
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const newMessageText = e.target['text'].value
     if (newMessageText === '') return
 
-    createNewMessage(newMessageText, chat_id)
-    
-  
+    sendPostRequest({content: newMessageText})
+
+
+
+
 
     // Limpia el formular io 
-    event.target.reset()
+    resetForm()
     setIsWriting(false)
   }
 
@@ -36,35 +47,35 @@ const ChatFooter = ({chat_id}) => {
   return (
     <footer className='chat-footer'>
       <div className='chat-footer-icons'>
-        
-          <Dropdown buttonContent={<BsEmojiLaughing />} >
+
+        <Dropdown buttonContent={<BsEmojiLaughing />} >
 
           <div className='dropdown-message'>
             Esta funcionalidad no esta lista aún.
           </div>
-          </Dropdown>
-        
+        </Dropdown>
+
         <Dropdown buttonContent={<FaPlus />}>
           <div className="dropdown-message">
-              Esta funcionalidad no esta lista aún.
+            Esta funcionalidad no esta lista aún.
           </div>
         </Dropdown>
-        
-        
+
+
       </div>
-      
+
       <form className='message-form' onChange={handleFormChange} onSubmit={handleSubmit}>
         <div className='message-input-container'>
-          <Input placeholder={'Escribe un mensaje'} name={'text'}/>
+          <Input placeholder={'Escribe un mensaje'} name='text' handleInputChange={handleInputChange} value={formState?.text} />
         </div>
         {
           isWriting
-          ? <button type='submit'><IoSend /></button>
-          : <Dropdown buttonContent={<IoMdMic />}>
+            ? <button type='submit'><IoSend /></button>
+            : <Dropdown buttonContent={<IoMdMic />}>
               <div className="dropdown-message">Todavía no es posible enviar audios.</div>
             </Dropdown>
         }
-       
+
       </form>
     </footer>
   )

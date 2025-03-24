@@ -8,10 +8,10 @@ import AuthContextProvider from './contexts/AuthContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <ChatsContextProvider>
-      <AuthContextProvider>
+    <AuthContextProvider>
+      <ChatsContextProvider>
         <App />
-      </AuthContextProvider>
-    </ChatsContextProvider>
+      </ChatsContextProvider>
+    </AuthContextProvider>
   </BrowserRouter>,
 )

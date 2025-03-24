@@ -4,14 +4,14 @@ import ChatItem from '../ChatItem/ChatItem'
 import ChatListHeader from '../ChatListHeader/ChatListHeader'
 import ChatListFooter from '../ChatListFooter/ChatListFooter'
 import { ChatsContext } from '../../../contexts/ChatsContext'
-import { AuthContext } from '../../../contexts/AuthContext'
+
 import Loader from '../../ui/Loader/Loader'
 
 
 const ChatList = ({setIsUserListOpen}) => {
-  const { chatsState, isChatlistOpen, getChatTitle, getChatImgSrc } = useContext(ChatsContext)
+  const { chatsState, isChatlistOpen } = useContext(ChatsContext)
   const [filteredChats, setFilteredChats] = useState([])
-  const { user } = useContext(AuthContext)
+  
 
 
 
@@ -25,9 +25,10 @@ const ChatList = ({setIsUserListOpen}) => {
           chatsState
             ?
             chatsState.map(chat => {
+              
 
               return (
-                <ChatItem key={chat._id} _id={chat._id} avatar={getChatImgSrc(chat, user)} chat_title={getChatTitle(chat, user)} />
+                <ChatItem key={chat._id} chat={chat}  />
               )
             })
             : <Loader />
