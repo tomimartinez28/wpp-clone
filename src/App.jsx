@@ -9,6 +9,7 @@ import RegisterScreen from "./screens/RegisterScreen/RegisterScreen"
 import ResetPasswordScreen from "./screens/ResetPasswordScreen/ResetPasswordScreen"
 import AuthLayout from "./hocs/AuthLayout/AuthLayout"
 import NewChatScreen from "./screens/NewChatScreen/NewChatScreen"
+import ProtectedRoute from "./components/ProtectedRoute"
 
 function App() {
 
@@ -18,21 +19,25 @@ function App() {
 
 
     <Routes>
-      <Route element={<AuthLayout/>}>
+      <Route element={<AuthLayout />}>
         <Route path="/" element={<LoginScreen />} />
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/reset-password" element={<ResetPasswordScreen />} />
         <Route path="/rewrite-password" element={<RewritePasswordScreen />} />
       </Route>
-      
-      <Route element={<ChatLayout />}>
-        <Route path="/home" element={<HomeScreen />} />
-        <Route path="/chat/:chat_id" element={<Chat />} />
-        <Route path="/new-chat/:user_id" element={<NewChatScreen />} />
+
+
+      <Route element={<ProtectedRoute />}>
+        <Route element={<ChatLayout />}>
+
+          <Route path="/home" element={<HomeScreen />} />
+          <Route path="/chat/:chat_id" element={<Chat />} />
+          <Route path="/new-chat/:user_id" element={<NewChatScreen />} />
+        </Route>
       </Route>
 
       {/* Redirigir cualquier otra ruta a login */}
-      <Route path="*" element={<Navigate to={'/'} />} />
+      <Route path="*" element={<Navigate to={'/'} />} /> 
 
     </Routes>
 

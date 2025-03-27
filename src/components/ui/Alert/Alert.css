@@ -1,8 +1,12 @@
 .error-alert {
     border: 1px solid red;
     background-color: rgba(255, 0, 0, 0.608);
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .error-alert.success{

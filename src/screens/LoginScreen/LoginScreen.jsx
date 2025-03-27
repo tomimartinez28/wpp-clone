@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
 import { useApiRequest } from '../../hooks/useApiRequest'
 import ENVIRONMENT from '../../config/environment'
 import { AuthContext } from '../../contexts/AuthContext'
 import Loader from '../../components/ui/Loader/Loader'
-import ErrorAlert from '../../components/ui/ErrorAlert.jsx/ErrorAlert'
+import Alert from '../../components/ui/Alert/Alert'
 import getServerErrorMessage from '../../helpers/getErrorServerMessage'
 
 const LoginScreen = () => {
@@ -68,7 +68,7 @@ const LoginScreen = () => {
 
           {
             responseApiState?.error
-            && <ErrorAlert errorMessage={getServerErrorMessage(responseApiState.error)} />
+            && <Alert errorMessage={getServerErrorMessage(responseApiState.error)} />
             
 
           }

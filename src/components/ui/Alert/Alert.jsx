@@ -1,10 +1,10 @@
 import React from 'react'
-import './ErrorAlert.css'
-const ErrorAlert = ({ errorMessage, type = 'error' }) => {
+import './Alert.css'
+const Alert = ({ errorMessage, type = 'error' }) => {
 
   return (
     <span className={`error-alert ${type}`}>{errorMessage}</span>
   )
 }
 
-export default ErrorAlert
+export default Alert

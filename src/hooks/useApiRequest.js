@@ -11,7 +11,17 @@ export const useApiRequest = (url) => {
 
     // Verificar si hay usuario en sessionStorage antes de hacer JSON.parse
     const storedUser = sessionStorage.getItem('user');
-    const { authorization_token } = storedUser ? JSON.parse(storedUser) : {};
+    const { authorization_token } = storedUser ? JSON.parse(storedUser) : {}
+
+    // si hay authorization token lo mando al header
+    const headers = {
+        'Content-type' : 'application/json',
+    }
+
+    if(authorization_token) {
+        headers['Authorization'] = `Bearer ${authorization_token}`
+    }
+
 
     const sendPostRequest = async (body) => {
 
@@ -26,10 +36,7 @@ export const useApiRequest = (url) => {
                 url,
                 {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${authorization_token}`
-                    },
+                    headers,
                     body: JSON.stringify(body)
                 }
             )
@@ -71,10 +78,7 @@ export const useApiRequest = (url) => {
 
             const response = await fetch(url, {
                 method: 'GET',
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${authorization_token}` // Prefijo 'Bearer' si es un token JWT
-                }
+                headers,
             });
 
             // trasnformo la response a json

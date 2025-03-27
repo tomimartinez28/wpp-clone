@@ -2,6 +2,7 @@ import React, { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import ENVIRONMENT from "../config/environment";
+
 export const AuthContext = createContext()
 
 const AuthContextProvider = ({ children }) => {
@@ -30,16 +31,20 @@ const AuthContextProvider = ({ children }) => {
         } catch(err) {
             console.error('Token invalido o expirado: ', err)
             logout()
+            
         }
     }
 
     useEffect(()=> {
+        if(!user) return
         verifyJwt()
+        
     }, [])
 
     const logout = () => {
         sessionStorage.removeItem('user')
         setUser(null)
+        
 
     }
     const login = (userData) => {
@@ -47,13 +52,11 @@ const AuthContextProvider = ({ children }) => {
         setUser(userData)
     }
 
-    useEffect(() => {
+     useEffect(() => {
         if (user) {
             navigate('/home')
-        } else {
-            navigate('/login')
-        }
-    }, [user])
+        } 
+    }, [user]) 
 
     return (
         <AuthContext.Provider value={{

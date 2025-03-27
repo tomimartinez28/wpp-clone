@@ -7,7 +7,7 @@ const AuthLayout = () => {
     return (
 
         <div className='auth-layout'>
-            <Link to="/login">
+            <Link to="/">
                 <span className='fake-wpp-logo'>
                     <WppLogo />
                     Fake Whatsapp

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
-import ErrorAlert from '../../components/ui/ErrorAlert.jsx/ErrorAlert'
+import Alert from '../../components/ui/Alert/Alert'
 import getServerErrorMessage from '../../helpers/getErrorServerMessage'
 import ENVIRONMENT from '../../config/environment'
 import { useApiRequest } from '../../hooks/useApiRequest'
@@ -21,6 +21,7 @@ const ResetPasswordScreen = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault()
         sendPostRequest(formState)
+        resetForm()
 
     }
 
@@ -33,7 +34,7 @@ const ResetPasswordScreen = () => {
                     <div className='input-container'>
                         <label htmlFor="email">Email</label>
                         <input
-                            type="text"
+                            type="email"
                             id='email'
                             name='email'
                             onChange={handleInputChange}
@@ -42,7 +43,7 @@ const ResetPasswordScreen = () => {
 
                     {
                         responseApiState?.error
-                        && <ErrorAlert errorMessage={getServerErrorMessage(responseApiState.error)} />
+                        && <Alert errorMessage={getServerErrorMessage(responseApiState.error)} />
 
 
                     }
@@ -54,15 +55,15 @@ const ResetPasswordScreen = () => {
                     }
 
                     {
-                        responseApiState?.data.ok
-                        && <ErrorAlert type='success' errorMessage={getServerErrorMessage(responseApiState.data.message)} />
+                        responseApiState?.data?.ok
+                        && <Alert type='success' errorMessage={getServerErrorMessage(responseApiState.data.message)} />
                     }
 
 
 
 
 
-                    <Link to="/login">Iniciá sesión</Link>
+                    <Link to="/">Iniciá sesión</Link>
 
 
                 </form>

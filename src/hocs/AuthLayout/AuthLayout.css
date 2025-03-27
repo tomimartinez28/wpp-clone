@@ -31,7 +31,8 @@
 }
 
 .form-container-columns img {   
-    width: 340px;
+    max-width: 350px;
+    overflow: hidden;
 }
 
 
@@ -50,7 +51,8 @@
 
 .input-container {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;  
+    gap: 5px;  
 }
 
 input {
@@ -111,3 +113,9 @@ input:focus {
 }
 
 
+
+@media screen and (max-width:768px) {
+    .form-container-columns img {
+        display: none;
+    }
+}

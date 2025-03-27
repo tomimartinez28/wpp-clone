@@ -3,14 +3,15 @@ import { useApiRequest } from '../../hooks/useApiRequest'
 import { useForm } from '../../hooks/useForm'
 import ENVIRONMENT from '../../config/environment'
 import { Link, useNavigate } from 'react-router-dom'
+import Alert from '../../components/ui/Alert/Alert'
 
 
 
 const RegisterScreen = () => {
     const navigate = useNavigate()
     const { responseApiState, sendPostRequest } = useApiRequest(ENVIRONMENT.API_URL + '/api/auth/register')
-
-    const { formState, handleInputChange, resetForm } = useForm({
+    
+    const { formState, handleInputChange, resetForm, errors } = useForm({
         username: "",
         password: "",
         email: ""
@@ -18,9 +19,10 @@ const RegisterScreen = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
+        if(Object.values(errors).some(error => error)) return; 
         sendPostRequest(formState)
         resetForm()
-        navigate('/login')
+        navigate('/')
     }
 
 
@@ -39,6 +41,7 @@ const RegisterScreen = () => {
                             name='username'
                             onChange={handleInputChange}
                             value={formState.username} />
+                        {errors.username && <Alert errorMessage={errors.username} />}
                     </div>
                     <div className='input-container'>
                         <label htmlFor="email">Email</label>
@@ -48,6 +51,7 @@ const RegisterScreen = () => {
                             name='email'
                             onChange={handleInputChange}
                             value={formState.email} />
+                        {errors.email && <Alert errorMessage={errors.email} />}
                     </div>
                     <div className='input-container'>
                         <label htmlFor="password">Contraseña</label>
@@ -58,10 +62,22 @@ const RegisterScreen = () => {
                             onChange={handleInputChange}
                             value={formState.password}
                         />
+                        {errors.password && <Alert errorMessage={errors.password} />}
+                    </div>
+                    <div className='input-container'>
+                        <label htmlFor="password2">Confirmar contraseña</label>
+                        <input
+                            type="password"
+                            id='password2'
+                            name='password2'
+                            onChange={handleInputChange}
+                            value={formState.password2}
+                        />
+                        {errors.password2 && <Alert errorMessage={errors.password2} />}
                     </div>
 
                     <button type='submit'>Crear cuenta</button>
-                    <Link to="/login">Ya tengo una cuenta</Link>
+                    <Link to="/">Ya tengo una cuenta</Link>
 
 
                 </form>
