@@ -2,12 +2,15 @@ import React, { useState, useEffect, useContext } from 'react'
 import { createContext } from "react";
 import { useApiRequest } from '../hooks/useApiRequest';
 import ENVIRONMENT from '../config/environment';
-import getFormattedTime from '../helpers/getFormattedTime';
 import { AuthContext } from '../contexts/AuthContext';
+import io from 'socket.io-client'
 
 // Creo el contexto global
 export const ChatsContext = createContext({})
 
+
+// Conecto el servidor de WebSocket
+const socket = io(ENVIRONMENT.API_URL)
 
 export const ChatsContextProvider = ({ children }) => {
     const { responseApiState, sendGetRequest } = useApiRequest(ENVIRONMENT.API_URL + '/api/chat/get-user-chats')
@@ -35,6 +38,39 @@ export const ChatsContextProvider = ({ children }) => {
     }, [responseApiState]);
 
 
+     // **Escuchar mensajes en tiempo real con WebSockets**
+     useEffect(() => {
+        socket.on("receiveMessage", (newMessage) => {
+            
+
+            // Actualizar la lista de chats con el nuevo mensaje
+            setChatsState((prevChats) =>
+                prevChats.map((chat) =>
+                    chat._id === newMessage.chat_id
+                        ? { ...chat, messages: [...chat.messages, newMessage] }
+                        : chat
+                )
+            );
+        });
+
+
+        return () => {
+            socket.off("receiveMessage"); // Limpiar el evento al desmontar
+        };
+    }, []);
+
+    const sendMessage = ({content, chat_id}) => {
+        const message = {
+            chat_id,
+            content,
+            sender: user._id, // ID del usuario que envía el mensaje
+        }; 
+    
+        socket.emit("sendMessage", message); // Enviar el mensaje por WebSockets
+    };
+
+
+
     const handleToggleChatlist = () => {
         setIsChatlistOpen(prev => !prev)
     }
@@ -56,8 +92,9 @@ export const ChatsContextProvider = ({ children }) => {
                 handleToggleChatlist: handleToggleChatlist,
                 isChatlistOpen: isChatlistOpen,
                 setIsChatlistOpen: setIsChatlistOpen,
-                /* getChatTitle, */
-                /* getChatImgSrc, */
+                sendMessage,
+                
+               
                 
             }
         }>

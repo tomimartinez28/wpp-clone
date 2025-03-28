@@ -11,15 +11,17 @@ import { useForm } from '../../../hooks/useForm';
 import { useApiRequest } from '../../../hooks/useApiRequest';
 import ENVIRONMENT from '../../../config/environment';
 const ChatFooter = ({ chat_id }) => {
+
   const [isWriting, setIsWriting] = useState(false)
   const { handleInputChange, formState, resetForm } = useForm({ text: '' })
-  const { responseApiState, sendPostRequest } = useApiRequest(ENVIRONMENT.API_URL + `/api/message/create/${chat_id}`)
+  const { sendMessage } = useContext(ChatsContext)
+  /* const { responseApiState, sendPostRequest } = useApiRequest(ENVIRONMENT.API_URL + `/api/message/create/${chat_id}`) */
 
-  useEffect(()=> {
-    if(responseApiState.data) {
+  /* useEffect(() => {
+    if (responseApiState.data) {
       console.log(responseApiState.data.payload);
     }
-  },[responseApiState])
+  }, [responseApiState]) */
 
   const handleFormChange = (e) => {
     const writtenText = e.target.value
@@ -32,10 +34,13 @@ const ChatFooter = ({ chat_id }) => {
     const newMessageText = e.target['text'].value
     if (newMessageText === '') return
 
-    sendPostRequest({content: newMessageText})
+    /* sendPostRequest({content: newMessageText}) */
 
 
-
+    sendMessage({
+      content: newMessageText,
+      chat_id: chat_id
+    })
 
 
     // Limpia el formular io 

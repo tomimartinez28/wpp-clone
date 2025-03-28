@@ -2,7 +2,7 @@ import { useState } from "react"
 
 export const useForm = (initialState) => {
 
-    const [formState, setFormState] = useState({})
+    const [formState, setFormState] = useState(initialState)
     const [errors, setErrors] = useState({})
     // funcion para validar campos
     const validateFields = (name, value) => {

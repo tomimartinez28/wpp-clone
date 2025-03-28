@@ -10,7 +10,7 @@ const useMessageInfo = (message) => {
 
     useEffect(() => {
       if(!user) return
-      console.log('sender', message.sender, 'user', user.id);
+    
         
         if (message.sender === user._id) {
            

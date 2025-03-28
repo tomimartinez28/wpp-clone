@@ -17,9 +17,7 @@ const useChatInfo = (chat) => {
             
             
             const other_user = chat.members.find(member => member._id !== user?._id);
-            console.log(chat.members);
-            console.log(user);
-            console.log('other_user', other_user);
+        
             setChatTitle(other_user?.username || "");
             setChatAvatar(other_user?.avatar || "");
         }
