@@ -39,7 +39,7 @@ El proyecto fue desarrollado con las siguientes tecnologías:
 
 ## 🚀 Instalación y Uso
 
-Sigue estos pasos para ejecutar el proyecto localmente:
+Seguí estos pasos para ejecutar el proyecto localmente:
 
 1. **Clona el repositorio**:  
    ```bash
