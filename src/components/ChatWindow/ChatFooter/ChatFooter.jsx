@@ -15,13 +15,17 @@ const ChatFooter = ({ chat_id }) => {
   const [isWriting, setIsWriting] = useState(false)
   const { handleInputChange, formState, resetForm } = useForm({ text: '' })
   const { sendMessage } = useContext(ChatsContext)
-  /* const { responseApiState, sendPostRequest } = useApiRequest(ENVIRONMENT.API_URL + `/api/message/create/${chat_id}`) */
+  const { responseApiState, sendPostRequest } = useApiRequest(ENVIRONMENT.API_URL + `/api/message/create/${chat_id}`)
+  const [newMessageState, setNewMessageState] = useState()
 
-  /* useEffect(() => {
-    if (responseApiState.data) {
-      console.log(responseApiState.data.payload);
+  useEffect(() => {
+    if (responseApiState.data.ok) {
+      sendMessage({
+        content: newMessageState,
+        chat_id: chat_id
+      })
     }
-  }, [responseApiState]) */
+  }, [responseApiState])
 
   const handleFormChange = (e) => {
     const writtenText = e.target.value
@@ -33,14 +37,12 @@ const ChatFooter = ({ chat_id }) => {
     e.preventDefault()
     const newMessageText = e.target['text'].value
     if (newMessageText === '') return
+    setNewMessageState(newMessageText)
+    
 
-    /* sendPostRequest({content: newMessageText}) */
 
-
-    sendMessage({
-      content: newMessageText,
-      chat_id: chat_id
-    })
+   
+    sendPostRequest({content: newMessageText})
 
 
     // Limpia el formular io 
