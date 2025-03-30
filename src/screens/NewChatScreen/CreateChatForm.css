@@ -1,0 +1,14 @@
+.create-chat-btn {
+    padding: 10px;
+    background-color: var(--logo-green);
+    color: black;
+    border: solid 2px var(--logo-green);
+    font-weight: 1000;
+    border-radius: 10px;
+}
+
+.create-chat-btn:hover {
+    background-color: transparent;
+    color: #f6f6f6;
+    border: solid 2px var(--logo-green),
+}

@@ -1,6 +1,6 @@
 .new-chat-screen {
     background-color: #212e35;
-    color: var(--transparent-white);
+    color: white;
     width: 70%;
     height: 100vh;
     display: flex;
@@ -10,6 +10,18 @@
     gap: 15px;
 }
 
+.new-chat-screen .user-avatar {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50px;
+    flex-shrink: 0
+}
+.new-chat-screen .user-avatar img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 
 @media screen and (max-width:768px) {
     .new-chat-screen {

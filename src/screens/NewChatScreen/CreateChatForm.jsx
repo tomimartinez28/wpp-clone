@@ -3,7 +3,7 @@ import { useApiRequest } from '../../hooks/useApiRequest'
 import ENVIRONMENT from '../../config/environment'
 import Loader from '../../components/ui/Loader/Loader'
 import { useNavigate } from 'react-router-dom'
-import { ChatsContext } from '../../contexts/ChatsContext'
+import './CreateChatForm.css'
 
 const CreateChatForm = ({ invited_ids }) => {
     const navigate = useNavigate()
@@ -36,7 +36,7 @@ const CreateChatForm = ({ invited_ids }) => {
             {
                 responseApiState.loading
                     ? <Loader />
-                    : <button type='submit'>Iniciar chat</button>
+                    : <button type='submit' className='create-chat-btn'>Iniciar chat</button>
             }
         </form>
     )

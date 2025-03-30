@@ -6,7 +6,7 @@ import useMessageInfo from '../../../hooks/useMessageInfo'
 
 const Message = ({ message }) => {
 
-  const { messageType } = useMessageInfo(message)
+  const { messageType, getFormatedDate, getFormatedTime } = useMessageInfo(message)
 
 
 
@@ -16,7 +16,7 @@ const Message = ({ message }) => {
       <div className={`message-bubble ${messageType}`}>
         <p>{message.content}</p>
         <span className='message-bubble-data'>
-          <p>{message.created_at}</p>
+          <p>{getFormatedTime(message.created_at)}</p>
           {
             messageType === 'sent'
             && <span className={`status-icon ${status}`}>{renderMessageStatus(status)}</span>

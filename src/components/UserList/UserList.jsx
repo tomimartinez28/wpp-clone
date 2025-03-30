@@ -56,9 +56,9 @@ const UserList = ({ isUserListOpen, setIsUserListOpen }) => {
                         return (
                             <Link key={user._id} to={`/new-chat/${user._id}`} onClick={onClick}>
                                 <div className='chat-item'>
-                                    <div className='profile-picture'>
-                                        <img src={user.avatar} alt={`Foto de perfil de ${user.username}`} />
-                                    </div>
+                                    <span className='user-avatar'>
+                                        <img src={`${ENVIRONMENT.API_URL}${user.avatar}`}  alt={`Foto de perfil de `} />
+                                    </span>
                                     <div className='chat-item-info'>
                                         <div className='chat-item-info header'>
                                             <h3>{user.username}</h3>

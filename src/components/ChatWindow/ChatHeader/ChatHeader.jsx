@@ -4,7 +4,7 @@ import Dropdown from '../../ui/Dropdown/Dropdown'
 import { Link } from 'react-router-dom'
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { ChatsContext } from '../../../contexts/ChatsContext';
-
+import ENVIRONMENT from '../../../config/environment';
 
 const ChatHeader = ({ chat_title, avatar }) => {
   const { handleToggleChatlist } = useContext(ChatsContext)
@@ -18,7 +18,7 @@ const ChatHeader = ({ chat_title, avatar }) => {
         <button onClick={handleToggleChatlist}><MdOutlineKeyboardArrowLeft size={25} /></button>
 
         <span className='user-avatar'>
-          <img src={avatar} alt={`Foto de perfil de `} />
+          <img src={`${ENVIRONMENT.API_URL}${avatar}`}  alt={`Foto de perfil de `} />
         </span>
         <div>
           <h4>{

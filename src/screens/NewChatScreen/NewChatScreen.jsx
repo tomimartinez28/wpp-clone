@@ -28,13 +28,19 @@ const NewChatScreen = () => {
 
       {
         foundUser
-          ? <h2>Iniciá una conversación con 
+          ? <>
+              <span className='user-avatar'>
+                <img src={`${ENVIRONMENT.API_URL}${foundUser.avatar}`} alt={`Foto de perfil de ${foundUser.username}`} />
+              </span>
+
+            <h2>Iniciá una conversación con
               <span> {foundUser.username}</span>
             </h2>
+          </>
           : <Loader />
       }
       <CreateChatForm invited_ids={user_id} />
-      
+
     </div>
   )
 }

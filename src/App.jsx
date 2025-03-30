@@ -10,6 +10,7 @@ import ResetPasswordScreen from "./screens/ResetPasswordScreen/ResetPasswordScre
 import AuthLayout from "./hocs/AuthLayout/AuthLayout"
 import NewChatScreen from "./screens/NewChatScreen/NewChatScreen"
 import ProtectedRoute from "./components/ProtectedRoute"
+import ProfileScreen from "./screens/ProfileScreen/ProfileScreen"
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/home" element={<HomeScreen />} />
           <Route path="/chat/:chat_id" element={<Chat />} />
           <Route path="/new-chat/:user_id" element={<NewChatScreen />} />
+          <Route path="/profile" element={<ProfileScreen />} />
         </Route>
       </Route>
 

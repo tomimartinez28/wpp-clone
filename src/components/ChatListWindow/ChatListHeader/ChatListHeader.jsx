@@ -11,8 +11,9 @@ import { Link } from 'react-router-dom';
 
 
 const ChatListHeader = ({ setFilteredChats,  setIsUserListOpen}) => {
-  const { chatsState } = useContext(ChatsContext)
+  const { chatsState, handleToggleChatlist } = useContext(ChatsContext)
   const { logout } = useContext(AuthContext)
+  
   
   const handleInputChange = (e) => {
     const searchedValue = e.target.value.toLowerCase()
@@ -31,9 +32,13 @@ const ChatListHeader = ({ setFilteredChats,  setIsUserListOpen}) => {
 
 
           <Dropdown buttonContent={<SlOptionsVertical />}>
-            <div className="dropdown-message">
-              <Link onClick={logout}>Cerrar sesión</Link>
+            <div className='dropdown-menu'>
+            <Link className='dropdown-item' to='/profile' onClick={handleToggleChatlist}>Mi perfil</Link>
+            <Link className='dropdown-item' onClick={logout}>Cerrar sesión</Link>
+
             </div>
+              
+            
           </Dropdown>
 
 

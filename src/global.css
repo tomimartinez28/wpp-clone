@@ -39,9 +39,20 @@ a {
   flex-direction: column;
   color: #f6f6f6;
   padding-top: 10px;
+  gap: 10px;
+  width: 200px;
+
 }
+.dropdown-item {
+  text-wrap: nowrap;
+}
+
 .dropdown-message {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  
 }
 
 .dropdown-menu * {
