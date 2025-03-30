@@ -3,7 +3,7 @@ import { createContext } from "react";
 import { useApiRequest } from '../hooks/useApiRequest';
 import ENVIRONMENT from '../config/environment';
 import { AuthContext } from '../contexts/AuthContext';
-
+import { v4 as uuidv4 } from 'uuid';
 
 // Creo el contexto global
 export const ChatsContext = createContext({})
@@ -39,11 +39,22 @@ export const ChatsContextProvider = ({ children }) => {
   
 
     const sendMessage = ({content, chat_id}) => {
-        const message = {
+        const newMessage = {
+            _id: uuidv4(),
             chat_id,
             content,
-            sender: user._id, // ID del usuario que envía el mensaje
+            sender: user._id,
+            created_at: Date.now()
+             // ID del usuario que envía el mensaje
         }; 
+         // Actualizar la lista de chats con el nuevo mensaje
+         setChatsState((prevChats) =>
+            prevChats.map((chat) =>
+                chat._id === newMessage.chat_id
+                    ? { ...chat, messages: [...chat.messages, newMessage] }
+                    : chat
+            )
+        );
     
         
     };

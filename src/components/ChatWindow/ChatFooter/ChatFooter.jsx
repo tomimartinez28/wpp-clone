@@ -19,13 +19,13 @@ const ChatFooter = ({ chat_id }) => {
   const [newMessageState, setNewMessageState] = useState()
 
   useEffect(() => {
-    if (responseApiState.data.ok) {
+    if (responseApiState?.data?.ok) {
       sendMessage({
         content: newMessageState,
         chat_id: chat_id
       })
     }
-  }, [responseApiState])
+  }, [responseApiState.data])
 
   const handleFormChange = (e) => {
     const writtenText = e.target.value
