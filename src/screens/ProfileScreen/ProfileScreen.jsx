@@ -62,7 +62,7 @@ const ProfileScreen = () => {
 
           if (response.ok) {
             console.log('Avatar atualizado correctamente');
-            window.location.reload()
+            
           }
 
         } catch (err) {
@@ -86,7 +86,7 @@ const ProfileScreen = () => {
 
             <div className='user-avatar-container'>
 
-              <img src={`${ENVIRONMENT.API_URL}${userInfo.avatar}`} alt={`avatar de ${userInfo.username}`} />
+              <img src={`${file ? file : userInfo.avatar}`} alt={`avatar de ${userInfo.username}`} />
               <div className='avatar-overlay' onClick={handleAvatarClick}>
                 Cambiar imagen
               </div>

@@ -57,7 +57,7 @@ const UserList = ({ isUserListOpen, setIsUserListOpen }) => {
                             <Link key={user._id} to={`/new-chat/${user._id}`} onClick={onClick}>
                                 <div className='chat-item'>
                                     <span className='user-avatar'>
-                                        <img src={`${ENVIRONMENT.API_URL}${user.avatar}`}  alt={`Foto de perfil de `} />
+                                        <img src={user.avatar} alt={`Foto de perfil de `} />
                                     </span>
                                     <div className='chat-item-info'>
                                         <div className='chat-item-info header'>

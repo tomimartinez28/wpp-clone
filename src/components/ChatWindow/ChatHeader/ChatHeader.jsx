@@ -18,7 +18,7 @@ const ChatHeader = ({ chat_title, avatar }) => {
         <button onClick={handleToggleChatlist}><MdOutlineKeyboardArrowLeft size={25} /></button>
 
         <span className='user-avatar'>
-          <img src={`${ENVIRONMENT.API_URL}${avatar}`}  alt={`Foto de perfil de `} />
+          <img src={avatar}  alt={`Foto de perfil de ${chat_title}`} />
         </span>
         <div>
           <h4>{
