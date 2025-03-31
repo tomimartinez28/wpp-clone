@@ -30,7 +30,7 @@ const NewChatScreen = () => {
         foundUser
           ? <>
               <span className='user-avatar'>
-                <img src={`${ENVIRONMENT.API_URL}${foundUser.avatar}`} alt={`Foto de perfil de ${foundUser.username}`} />
+                <img src={foundUser.avatar} alt={`Foto de perfil de ${foundUser.username}`} />
               </span>
 
             <h2>Iniciá una conversación con
