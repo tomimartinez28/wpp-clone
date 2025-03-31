@@ -4,27 +4,29 @@ import { useForm } from '../../hooks/useForm'
 import ENVIRONMENT from '../../config/environment'
 import { Link, useNavigate } from 'react-router-dom'
 import Alert from '../../components/ui/Alert/Alert'
-
-
+import Loader from '../../components/ui/Loader/Loader'
+import getServerErrorMessage from '../../helpers/getErrorServerMessage'
 
 const RegisterScreen = () => {
     const navigate = useNavigate()
     const { responseApiState, sendPostRequest } = useApiRequest(ENVIRONMENT.API_URL + '/api/auth/register')
-    
+
     const { formState, handleInputChange, resetForm, errors } = useForm({
         username: "",
         password: "",
+        password2: "",
         email: ""
     })
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
-        if(Object.values(errors).some(error => error)) return; 
+        if (Object.values(errors).some(error => error)) return;
         sendPostRequest(formState)
         resetForm()
-        navigate('/')
+        
     }
 
+    
 
     return (
 
@@ -76,9 +78,23 @@ const RegisterScreen = () => {
                         {errors.password2 && <Alert errorMessage={errors.password2} />}
                     </div>
 
-                    <button type='submit'>Crear cuenta</button>
-                    <Link to="/">Ya tengo una cuenta</Link>
 
+
+                    {
+                        responseApiState.loading
+                            ? <Loader />
+                            : <button type='submit'>Crear cuenta</button>
+                    }
+                    {
+                        responseApiState.error
+                        && <Alert errorMessage={getServerErrorMessage(responseApiState.error)} />
+                    }
+                    {
+                        responseApiState.ok
+                        && <Alert type='success' errorMessage='Usuario creado. Revisá tu correo electrónico.' />
+                    }
+
+                    <Link to="/">Ya tengo una cuenta</Link>
 
                 </form>
                 <img src="/signup.svg" alt="Ilustración de registro de usuario" />
