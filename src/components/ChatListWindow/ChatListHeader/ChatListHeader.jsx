@@ -28,9 +28,10 @@ const ChatListHeader = ({ setFilteredChats,  setIsUserListOpen}) => {
         <h3>Chats</h3>
         <div className='chatlist-header-icons'>
           
+          <span className='twinkle'>
           <BiMessageSquareAdd size={18} onClick={() => setIsUserListOpen(true)} />
 
-
+          </span>
           <Dropdown buttonContent={<SlOptionsVertical />}>
             <div className='dropdown-menu'>
             <Link className='dropdown-item' to='/profile' onClick={handleToggleChatlist}>Mi perfil</Link>

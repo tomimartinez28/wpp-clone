@@ -17,6 +17,7 @@
     color: var(--transparent-white);
     display: flex;
     align-items: center;
+    justify-content: center;
     gap:15px;
     cursor: pointer;
 }
@@ -36,3 +37,17 @@
 .chat-searcher span {
     font-size: 15px;
 }
+
+@keyframes twinkle {
+    0% { color: var(--transparent-white); }
+    50% { color: var(--logo-green); }
+    100% { color: var(--transparent-white); }
+  }
+  
+  .twinkle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: twinkle 1s infinite;
+  }
+  
