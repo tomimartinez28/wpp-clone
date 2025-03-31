@@ -31,22 +31,33 @@ const ProfileScreen = () => {
   const handleAvatarClick = () => {
     fileInputRef.current.click()
   }
+  const handleAvatarChange = (e) => {
+    const file = e.target.files[0]
+    const reader = new FileReader()
+    reader.onload = () => {
+      setFile(reader.result)
+    }
+    reader.readAsDataURL(file)
+  }
 
   useEffect(() => {
     if (file) {
       const updateAvatar = async () => {
-        const formData = new FormData()
-        formData.append('file', file)
 
-
+        const body = {
+          avatar: file,
+        }
         try {
 
-          const response = await fetch(ENVIRONMENT.API_URL + '/api/auth/update-user-avatar', {
+          const response = await fetch(ENVIRONMENT.API_URL + '/api/auth/update-user-avatar', 
+            {
             method: 'PUT',
             headers: {
-              'Authorization': `Bearer ${authorization_token}`
+              'Authorization': `Bearer ${authorization_token}`,
+              'Content-Type' : 'Application/json'
             },
-            body: formData
+            body: JSON.stringify(body),
+            
           })
 
           if (response.ok) {
@@ -81,10 +92,12 @@ const ProfileScreen = () => {
               </div>
               <form action="" encType='multipart/form-data'>
                 <input
+                  id='avatar'
+                  name='avatar'
                   type="file"
                   accept='image/*'
                   ref={fileInputRef}
-                  onChange={(e) => setFile(e.target.files[0])}
+                  onChange={handleAvatarChange}
                   style={{ display: 'none' }}
                 />
 
