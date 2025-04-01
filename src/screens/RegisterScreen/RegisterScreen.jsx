@@ -90,7 +90,7 @@ const RegisterScreen = () => {
                         && <Alert errorMessage={getServerErrorMessage(responseApiState.error)} />
                     }
                     {
-                        responseApiState.ok
+                        responseApiState?.data?.ok
                         && <Alert type='success' errorMessage='Usuario creado. Revisá tu correo electrónico.' />
                     }
 

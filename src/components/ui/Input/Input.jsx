@@ -2,6 +2,7 @@ import React from 'react'
 import './Input.css'
 
 const Input = ({placeholder, name, handleInputChange, value}) => {
+  
   return (
     <div className='input-cointainer'>
       <label htmlFor={name} hidden></label>

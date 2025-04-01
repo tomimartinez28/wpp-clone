@@ -10,7 +10,7 @@ import Loader from '../../ui/Loader/Loader'
 
 const ChatList = ({setIsUserListOpen}) => {
   const { chatsState, isChatlistOpen } = useContext(ChatsContext)
-  const [filteredChats, setFilteredChats] = useState([])
+  const [filteredChats, setFilteredChats] = useState(chatsState)
   
 
 
@@ -21,6 +21,8 @@ const ChatList = ({setIsUserListOpen}) => {
     <div className={`chatlist-window ${isChatlistOpen ? 'open' : 'close'}`}>
       <ChatListHeader setFilteredChats={setFilteredChats} setIsUserListOpen={setIsUserListOpen} />
       <div className='chatlist-items-container'>
+
+
         {
           chatsState
             ?
