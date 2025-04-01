@@ -24,7 +24,7 @@ const UserList = ({ isUserListOpen, setIsUserListOpen }) => {
           return;
         }
     
-        const filteredUsers = users.filter(user => user.username.includes(searchedValue));
+        const filteredUsers = users.filter(user => user.username.toLowerCase().includes(searchedValue));
     
         setFilteredUsers(filteredUsers);
       };
