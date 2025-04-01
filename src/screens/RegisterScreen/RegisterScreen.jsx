@@ -8,7 +8,6 @@ import Loader from '../../components/ui/Loader/Loader'
 import getServerErrorMessage from '../../helpers/getErrorServerMessage'
 
 const RegisterScreen = () => {
-    const navigate = useNavigate()
     const { responseApiState, sendPostRequest } = useApiRequest(ENVIRONMENT.API_URL + '/api/auth/register')
 
     const { formState, handleInputChange, resetForm, errors } = useForm({

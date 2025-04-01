@@ -14,21 +14,26 @@ import useChatInfo from '../../../hooks/useChatInfo';
 const ChatListHeader = ({ setFilteredChats, setIsUserListOpen }) => {
   const { chatsState, handleToggleChatlist } = useContext(ChatsContext)
   const { logout } = useContext(AuthContext)
-  
+
 
   const handleInputChange = (e) => {
-    
-   /*  const searchedValue = e.target.value.toLowerCase();
-    
-    
-    const filteredChats = chatsState.filter(chat => 
-      chat.members.some(member => 
+    const searchedValue = e.target.value.toLowerCase();
+
+    if (searchedValue === "") {
+      // Si el input está vacío, mostrar todos los chats
+      setFilteredChats(chatsState);
+      return;
+    }
+
+    const filteredChats = chatsState.filter(chat =>
+      chat.members.some(member =>
         member.username.toLowerCase().includes(searchedValue)
       )
     );
-  
-    setFilteredChats(filteredChats); */
+
+    setFilteredChats(filteredChats);
   };
+
 
 
 

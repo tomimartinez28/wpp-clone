@@ -13,9 +13,30 @@ const UserList = ({ isUserListOpen, setIsUserListOpen }) => {
     const { responseApiState, sendGetRequest } = useApiRequest(ENVIRONMENT.API_URL + '/api/auth/get-all-users')
     const [users, setUsers] = useState([])
     const { handleToggleChatlist } = useContext(ChatsContext)
+    const [filteredUsers, setFilteredUsers] = useState(users)
+
+    const handleInputChange = (e) => {
+        const searchedValue = e.target.value.toLowerCase();
+    
+        if (searchedValue === "") {
+          // Si el input está vacío, mostrar todos los chats
+          setFilteredUsers(users);
+          return;
+        }
+    
+        const filteredUsers = users.filter(user => user.username.includes(searchedValue));
+    
+        setFilteredUsers(filteredUsers);
+      };
+    
+
+    useEffect(() => {
+        setFilteredUsers(users)
+    },[users])
 
     useEffect(() => {
         sendGetRequest()
+        
     }, [])
 
     useEffect(() => {
@@ -44,7 +65,7 @@ const UserList = ({ isUserListOpen, setIsUserListOpen }) => {
                 <form onSubmit={(e) => e.preventDefault()}>
                     <div className='chat-searcher'>
                         <span><IoSearch /></span>
-                        <Input placeholder='Buscar' name='searcher' />
+                        <Input placeholder='Buscar' name='searcher' handleInputChange={handleInputChange} />
                     </div>
                 </form>
 
@@ -52,7 +73,7 @@ const UserList = ({ isUserListOpen, setIsUserListOpen }) => {
             <div className='user-list-items-container'>
 
                 {
-                    users.map(user => {
+                    filteredUsers.map(user => {
                         return (
                             <Link key={user._id} to={`/new-chat/${user._id}`} onClick={onClick}>
                                 <div className='chat-item'>

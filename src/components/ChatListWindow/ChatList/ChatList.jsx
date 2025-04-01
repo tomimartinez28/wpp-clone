@@ -8,15 +8,18 @@ import { ChatsContext } from '../../../contexts/ChatsContext'
 import Loader from '../../ui/Loader/Loader'
 
 
-const ChatList = ({setIsUserListOpen}) => {
+const ChatList = ({ setIsUserListOpen }) => {
   const { chatsState, isChatlistOpen } = useContext(ChatsContext)
-  const [filteredChats, setFilteredChats] = useState(chatsState)
+  const [filteredChats, setFilteredChats] = useState()
+
+
+
+
+  useEffect(() => {
+    setFilteredChats(chatsState); 
+  }, [chatsState]);
+
   
-
-
-
-
-
   return (
     <div className={`chatlist-window ${isChatlistOpen ? 'open' : 'close'}`}>
       <ChatListHeader setFilteredChats={setFilteredChats} setIsUserListOpen={setIsUserListOpen} />
@@ -24,13 +27,13 @@ const ChatList = ({setIsUserListOpen}) => {
 
 
         {
-          chatsState
+          filteredChats
             ?
-            chatsState.map(chat => {
-              
+            filteredChats.map(chat => {
+
 
               return (
-                <ChatItem key={chat._id} chat={chat}  />
+                <ChatItem key={chat._id} chat={chat} />
               )
             })
             : <Loader />

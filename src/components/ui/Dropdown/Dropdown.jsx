@@ -35,7 +35,7 @@ const Dropdown = ({buttonContent, children}) => {
         const isOverflowingBottom = buttonRect.bottom + dropdownRect.height > window.innerHeight
 
         
-    
+        console.log('isOverflowingRight', isOverflowingRight);
 
         setPosition({
           top: isOverflowingBottom ? 'auto' : buttonRect.bottom + window.scrollY, 
